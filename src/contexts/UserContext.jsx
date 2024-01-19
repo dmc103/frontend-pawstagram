@@ -18,16 +18,20 @@ export const UserProvider = ({ children }) => {
     // getCurrentUserId() is a helper function defined below
     const currentUserId = getCurrentUserId()
     
+    if(currentUserId) {
     const fetchUser = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5005/user/${currentUserId}`); 
-        setUser(response.data);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
+        try {
+            const response = await axios.get(`http://localhost:5005/user/${currentUserId}`);
+            setUser(response.data);
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+        }
     };
 
     fetchUser();
+
+    } 
+
   }, []);
 
   return (

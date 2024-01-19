@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import logo from '../assets/pawstagram.logo.png';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function LoginForm({ onLoginSuccess }){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -18,12 +21,19 @@ function LoginForm({ onLoginSuccess }){
               password,
             });
 
+            console.log(response.data);
+
+            navigate('/userprofile');
+
           const data = response.data;
 
           if (response.status === 200) {
 
-            //storing the token in local storage...for now
+            //storing the token in local storage..
             localStorage.setItem('authToken', data.authToken);
+            localStorage.setItem('userId', data.userId);
+            localStorage.setItem('userName', data.userName);
+
             onLoginSuccess(data.authToken);
 
           }else {
