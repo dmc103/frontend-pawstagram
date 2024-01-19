@@ -38,7 +38,6 @@ function LoginForm({ onLoginSuccess }){
 
           }else {
             // handle error
-            //we can also show the error message to the user by using alert instead of console.log
             alert(data.message);
           }
 

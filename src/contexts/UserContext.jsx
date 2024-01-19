@@ -3,7 +3,6 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 
 
-
 // create a context
 export const UserContext = createContext();
 

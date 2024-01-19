@@ -4,7 +4,13 @@ export default {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        pawBgOne: '#99F6E4', //green-minty
+        pawBgTwo: '#F5F7FB', //white with abit of gray
+        pawBgThree: '#FBCBC9' //pinkish
+      }
+    },
   },
   plugins: [],
 }
