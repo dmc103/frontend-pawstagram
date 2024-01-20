@@ -55,7 +55,7 @@ function LoginForm({ onLoginSuccess }){
 
   return (
     <div className='min-h screen flex items-center justify-center bg-white'>
-    <div className="max-w-md w-full space-y-8 p-10 bg-teal-200 rounded-xl shadow-lg z-10">
+    <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg z-10">
         <div className="text-center">
           <h2 className="mt-6 text-3xl font-bold text-indigo-900">
             WELCOME BACK

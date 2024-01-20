@@ -10,6 +10,8 @@ function CardForPost() {
    
   return (
 
+    
+
    <Card>
    <div className="flex gap-2">
 
@@ -19,6 +21,8 @@ function CardForPost() {
     <textarea className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2" placeholder="What's on your mind?"></textarea>
 
    </div>
+
+
    <div className="flex gap-7 items-center mt-2">
 
    <div>
