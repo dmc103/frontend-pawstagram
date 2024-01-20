@@ -30,10 +30,15 @@ function UserProfile() {
             
         </div>
         <div className="grow">
+
+        <div>
+        <Card><h1 className="text-xl font-bold mt-2">Profile of {user.userName}</h1>
+            <p className="text-sm text-gray-600">Bio: {user.bio}</p>
+        </Card>
+        </div>
+       
         <CardForPost />
             <Card>Our Posts should be displayed here</Card>
-            <h1 className="text-xl font-bold mt-2">Profile of {user.userName}</h1>
-            <p className="text-sm text-gray-600">Bio: {user.bio}</p>
         </div>
             
         </div>
