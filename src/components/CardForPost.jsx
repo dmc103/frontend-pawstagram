@@ -1,9 +1,13 @@
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 import Card  from "./Card"
 import UserAvatar from "./UserAvatar"
 
 
-function CardForPost() {
 
+function CardForPost() {
+    const { user } = useContext(UserContext);
+    
     const handleIconClick = () => {
         alert("Icon clicked")
     }
@@ -18,7 +22,7 @@ function CardForPost() {
     <UserAvatar />
 
    
-    <textarea className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2" placeholder="What's on your mind?"></textarea>
+    <textarea className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2" placeholder= {`What's on your mind, ${user.userName}?`}></textarea>
 
    </div>
 

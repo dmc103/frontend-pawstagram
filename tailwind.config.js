@@ -9,7 +9,8 @@ export default {
         pawBgOne: '#99F6E4', //green-minty
         pawBgTwo: '#F5F7FB', //white with abit of gray
         pawBgThree: '#FBCBC9', //pinkish
-        pawBgFour: '#00a19d' //parisian green
+        pawBgFour: '#00a19d', //parisian green
+        pawBgFive: 'FFF8E5', //yellowish
       }
     },
   },
