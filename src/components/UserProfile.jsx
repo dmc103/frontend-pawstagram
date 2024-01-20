@@ -1,8 +1,9 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
-import NavCard from "./NavCard";
+import Card from "./Card";
 import NavBar from "./NavBar";
+import CardForPost from "./CardForPost";
 
 function UserProfile() {
     const { user } = useContext(UserContext);
@@ -29,10 +30,10 @@ function UserProfile() {
             
         </div>
         <div className="grow">
-            <NavCard>Form here</NavCard>
-            <NavCard>Our Post Here</NavCard>
+        <CardForPost />
+            <Card>Our Posts should be displayed here</Card>
             <h1 className="text-xl font-bold mt-2">Profile of {user.userName}</h1>
-            <p className="text-sm text-gray-600">{user.bio}</p>
+            <p className="text-sm text-gray-600">Bio: {user.bio}</p>
         </div>
             
         </div>
