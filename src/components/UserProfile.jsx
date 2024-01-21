@@ -45,6 +45,8 @@ function UserProfile() {
             </svg>
 
         </button>
+
+        {/* dropdown upper right-hand corner */}
         <div id="dropdown" className="z-10 hidden text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
             <ul className="py-2" aria-labelledby="dropdownButton">
             <li>
@@ -62,8 +64,9 @@ function UserProfile() {
     <div className="flex flex-col items-center pb-10">
     
 
-    <UserAvatar />
+    <UserAvatar/>
 
+        
         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{user.userName}</h5>
 
         <span className="text-sm text-gray-500 dark:text-gray-100">
