@@ -11,6 +11,8 @@ function UserProfile() {
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
 
+    const catSpinner = "https://media4.giphy.com/media/wnYB3vx9t6PXiq1ubB/giphy.gif?cid=ecf05e47adpu5m1dewuaidkpywvo7tzpou00hmrzxlduqhw9&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+
     useEffect(() => {
         if (!user) {
             navigate('/login');
@@ -20,7 +22,9 @@ function UserProfile() {
     if (!user) {
         
         // TODO: Add a loading spinner
-        return <div>Loading user profile...</div>;
+        return (
+            <img src={catSpinner} alt="cat-spinner" />
+            );
     }
 
     return (
