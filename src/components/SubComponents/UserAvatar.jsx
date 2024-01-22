@@ -1,4 +1,4 @@
-import profilePic from "../assets/samprofPic.jpg"
+import profilePic from "../../assets/samprofPic.jpg"
 
 
 

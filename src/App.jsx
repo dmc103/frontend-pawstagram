@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import RegisterPage from './components/RegisterPage';
 import LoginForm from './components/LoginForm';
 import { UserProvider } from './contexts/UserContext';
-import UserProfile from './components/UserProfile';
+import UserProfile from './components/SubComponents/UserProfile';
 
 
 

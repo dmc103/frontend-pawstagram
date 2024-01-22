@@ -1,11 +1,11 @@
 import { useContext, useEffect } from "react";
-import { UserContext } from "../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 import NavBar from "./NavBar";
 import CardForPost from "./CardForPost";
 import UserAvatar from "./UserAvatar";
-import firstPost from "../assets/bestfriend.jpg";
+import firstPost from "../../assets/bestfriend.jpg";
 
 function UserProfile() {
     const { user } = useContext(UserContext);
