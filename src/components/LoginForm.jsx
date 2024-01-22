@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import logo from '../assets/pawstagram.logo.png';
+import logo from '../assets/pawstagram.jpg';
 import { useNavigate } from 'react-router-dom';
 
 

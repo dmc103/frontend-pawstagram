@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import CardForPost from "./CardForPost";
 import UserAvatar from "./UserAvatar";
 import firstPost from "../../assets/bestfriend.jpg";
+import logo from "../../assets/pawstagram.jpg"
 
 function UserProfile() {
     const { user } = useContext(UserContext);
@@ -29,8 +30,16 @@ function UserProfile() {
 
     return (
 
+
+
         <div className="flex mt-4 max-w-4xl mx-auto gap-6">
+       
         <div className="w-1/4">
+
+        <div className="flex mt-2 gap-1 rounded-full w-14 h-14">
+        <img src={logo}/>
+        <span className="text-sm mt-4 hidden md:block text-orange-300 font-bold">Pawstagram</span>
+        </div>
 
         <NavBar/>
             
