@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
-import { UserContext } from "../../contexts/UserContext";
+import { UserContext } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
-import NavBar from "./NavBar";
-import CardForPost from "./CardForPost";
-import CardForSharedPost from "./CardForSharedPost";
-import UserAvatar from "./UserAvatar";
-import logo from "../../assets/pawstagram.jpg"
+import NavBar from "./SubComponents/NavBar";
+import CardForPost from "./SubComponents/CardForPost";
+import CardForSharedPost from "./SubComponents/CardForSharedPost";
+import UserAvatar from "./SubComponents/UserAvatar";
+import logo from "../assets/pawstagram.jpg"
 
-function UserProfile() {
+function UserHome() {
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
 
@@ -98,4 +98,4 @@ function UserProfile() {
     );
 }
 
-export default UserProfile;
+export default UserHome;

@@ -17,22 +17,28 @@ function CardForSharedPost() {
     <div> 
 
     <div className="flex">
+    <a href={`/profile/${user.userName}`} className="cursor-pointer">
     <UserAvatar />
+    </a>
         <div className="grow">
-            <p><span className="font-semibold px-2">{user.userName}</span>shared a post</p>
+            <p>
+            <a href={`/profile/${user.userName}`} className="font-semibold px-2 cursor-pointer hover:underline">{user.userName}</a>
+            
+            shared a post</p>
+
             <p className="text-sm text-gray-500 px-2">1 hour ago</p>
         </div>
     </div>
 
 
-        <div>
+        {/* <div>
             <button>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
             <path fillRule="evenodd" d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
             </svg>
             </button>
-        </div>
-        
+        </div> */}
+
 
         <div>
                 <p className="my-2 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis aliquam faucibus purus in massa tempor nec. Viverra tellus in hac habitasse. Sed vulputate odio ut enim. </p>

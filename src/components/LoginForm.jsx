@@ -23,7 +23,7 @@ function LoginForm({ onLoginSuccess }){
 
             console.log(response.data);
 
-            navigate('/userprofile');
+            navigate('/homepage');
 
           const data = response.data;
 
