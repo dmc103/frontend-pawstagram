@@ -56,3 +56,14 @@ h1 {
     background-color: #f9f9f9;
   }
 }
+
+
+
+@media (max-width: 640px) { 
+  .hover\:scale-95:hover {
+    transform: scale(0.95); 
+  }
+  .scale-95 {
+    transform: scale(0.95); 
+  }
+}

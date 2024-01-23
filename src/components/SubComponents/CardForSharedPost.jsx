@@ -110,7 +110,7 @@ function CardForSharedPost() {
         {/* comment space */}
         <div className="flex mt-4 gap-3">
           <div>
-            <UserAvatar />
+            <UserAvatar isOnline={true} />
           </div>
           <textarea
             className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2"

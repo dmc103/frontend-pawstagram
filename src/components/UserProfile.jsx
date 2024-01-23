@@ -12,9 +12,6 @@ function UserProfile() {
 
   const spinner = "https://i.gifer.com/Xqg8.gif";
 
-  console.log(`UserProfile for: ${userName}`);
-  console.log("User is:", user);
-
   if (!user) {
     return <img src={spinner} />;
   }

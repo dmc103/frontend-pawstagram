@@ -3,22 +3,22 @@ import logo from "../../assets/pawstagram.jpg";
 
 function NavBar() {
   const ActiveElement =
-    "flex gap-3 py-3 my-2 bg-pawBgFour text-white -mx-10 px-10 rounded-md shadow-md shadow-gray-300";
+    "flex gap-3 py-3 my-2 bg-pawBgFour text-white -mx-10 px-10 rounded-md shadow-md shadow-gray-300 scale-95";
 
   const nonActiveElement =
-    "flex gap-3 py-2 my-2 hover:bg-pawBgOne -mx-10 px-10 rounded-md transition-all hover:scale-105 hover:shadow-md hover: shadow-gray-300";
+    "flex gap-3 py-2 my-2 hover:bg-pawBgOne -mx-10 px-10 rounded-md transition-all hover:scale-105 hover:scale-90 hover:shadow-md hover:shadow-gray-300";
 
   return (
-    <div>
-      <div className="flex mt-3 gap-1 rounded-full w-14 h-14">
-        <img src={logo} />
-        <span className="text-sm mt-4 hidden md:block text-orange-300 font-bold">
+    <div className="fixed inset-x-0 bottom-0 z-50 pr-6 md:relative md:bottom-auto">
+      <div className="hidden md:flex md:justify-start">
+        <img src={logo} className="rounded-full w-14 h-14 " />
+        <span className="text-sm mt-4 ml-2 md:block text-orange-300 font-bold">
           Pawstagram
         </span>
       </div>
 
       <Card noPadding={true}>
-        <div className="px-4 flex justify-between md:block shadow-md shadow-gray-500 md:shadow-none">
+        <div className="flex justify-around md:block shadow-md shadow-gray-500 md:shadow-none">
           <a href="" className={ActiveElement}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
