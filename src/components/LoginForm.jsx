@@ -45,10 +45,9 @@ function LoginForm({ onLoginSuccess }) {
             },
           }
         );
+        navigate("/homepage");
 
         onLoginSuccess(loginData.authToken);
-
-        navigate("/homepage");
       } else {
         // handle error
         alert(loginData.message);
