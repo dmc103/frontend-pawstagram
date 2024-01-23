@@ -13,7 +13,11 @@ function UserProfile() {
   const spinner = "https://i.gifer.com/Xqg8.gif";
 
   if (!user) {
-    return <img src={spinner} />;
+    return (
+      <div className="fixed inset-0 z-50 flex justify-center items-center">
+        <img src={spinner} alt="Loading...." />
+      </div>
+    );
   }
 
   return (
