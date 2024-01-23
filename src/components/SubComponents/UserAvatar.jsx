@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function UserAvatar({
   isOnline,
   size = "w-14 h-14",
-  indicatorPosition = "top-10 start=11",
+  indicatorPosition = "top-10 start-11",
 }) {
   const indicatorColor = isOnline ? "bg-green-500" : "bg-gray-500";
 
