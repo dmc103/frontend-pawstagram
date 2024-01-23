@@ -1,8 +1,9 @@
+import { UserProvider } from './contexts/UserContext';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import RegisterPage from './components/RegisterPage';
 import LoginForm from './components/LoginForm';
-import { UserProvider } from './contexts/UserContext';
 import UserHome from './components/UserHome';
+import UserProfile from './components/UserProfile';
 
 
 
@@ -20,6 +21,7 @@ function App () {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginForm onLoginSuccess={handleLoginSuccess} />} />
         <Route path="/homepage" element={<UserHome />} />
+        <Route path="/profile/:userName" element={<UserProfile />} />
       </Routes>
     </UserProvider>
     </Router>
