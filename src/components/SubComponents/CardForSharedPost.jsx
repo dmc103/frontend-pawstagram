@@ -11,7 +11,7 @@ function CardForSharedPost() {
 
   return (
     <div>
-      <div className="flex">
+      <div className="flex px-5">
         <a href={`/profile/${user.userName}`} className="cursor-pointer">
           <UserAvatar isOnline={true} />
         </a>

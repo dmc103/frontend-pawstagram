@@ -5,7 +5,6 @@ import NavBar from "./SubComponents/NavBar";
 import CardForPost from "./SubComponents/CardForPost";
 import CardForSharedPost from "./SubComponents/CardForSharedPost";
 import UserAvatar from "./SubComponents/UserAvatar";
-import logo from "../assets/pawstagram.jpg";
 
 function UserHome() {
   const { user } = useContext(UserContext);
@@ -27,14 +26,7 @@ function UserHome() {
 
   return (
     <div className="flex mt-4 max-w-4xl mx-auto gap-6">
-      <div className="w-1/4">
-        <div className="flex mt-2 gap-1 rounded-full w-14 h-14">
-          <img src={logo} />
-          <span className="text-sm mt-4 hidden md:block text-orange-300 font-bold">
-            Pawstagram
-          </span>
-        </div>
-
+      <div>
         <NavBar />
       </div>
       <div className="w-3/4">
