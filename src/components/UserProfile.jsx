@@ -14,8 +14,9 @@ function UserProfile() {
 
   if (!user) {
     return (
-      <div className="fixed inset-0 z-50 flex justify-center items-center">
-        <img src={spinner} alt="Loading...." />
+      <div className="h-screen flex flex-col items-center justify-center">
+        <img src={spinner} alt="spinner" />
+        <p style={{fontSize: "20px"}}>Loading ...</p>
       </div>
     );
   }
