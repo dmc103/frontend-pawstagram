@@ -3,10 +3,10 @@ import logo from "../../assets/pawstagram.jpg";
 
 function NavBar() {
   const ActiveElement =
-    "flex gap-3 py-3 my-2 bg-pawBgFour text-white -mx-10 px-10 rounded-md shadow-md shadow-gray-300 scale-95";
+    "flex gap-3 py-3 my-2 bg-pawBgFour text-white px-4 -mx-10 md:px-10 md: gap-3 md:scale-100 rounded-md shadow-md shadow-gray-300 small: scale-95";
 
   const nonActiveElement =
-    "flex gap-3 py-2 my-2 hover:bg-pawBgOne -mx-10 px-10 rounded-md transition-all hover:scale-105 hover:scale-90 hover:shadow-md hover:shadow-gray-300";
+    "flex gap-3 py-2 my-2 hover:bg-pawBgOne -mx-10 px-10 md:px-7 rounded-md transition-all hover:scale-95 hover:shadow-md small: scale-95";
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 pr-6 md:relative md:bottom-auto">
