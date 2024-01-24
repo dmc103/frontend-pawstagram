@@ -5,6 +5,7 @@ import Navbar from "./SubComponents/NavBar";
 import Card from "./SubComponents/Card";
 import banner from "../assets/banner.jpg";
 import UserAvatar from "./SubComponents/UserAvatar";
+import Tab from "./SubComponents/Tab";
 
 function UserProfile() {
   const { userName } = useParams();
@@ -16,7 +17,7 @@ function UserProfile() {
     return (
       <div className="h-screen flex flex-col items-center justify-center">
         <img src={spinner} alt="spinner" />
-        <p style={{fontSize: "20px"}}>Loading ...</p>
+        <p style={{ fontSize: "20px" }}>Loading ...</p>
       </div>
     );
   }
@@ -49,6 +50,7 @@ function UserProfile() {
           <div className="text-m text-gray-500">{user.country}</div>
           <div className="text-m text-gray-500">{user.bio}</div>
         </div>
+        <Tab />
       </Card>
     </div>
   );
