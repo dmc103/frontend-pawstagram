@@ -28,6 +28,7 @@ function App() {
           />
           <Route path="/homepage" element={<UserHome />} />
           <Route path="/profile/:userName" element={<UserProfile />} />
+          <Route path="*" element={<Navigate replace to="/login" />} />
         </Routes>
       </UserProvider>
     </Router>

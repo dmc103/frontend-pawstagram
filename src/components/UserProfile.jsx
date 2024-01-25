@@ -50,6 +50,7 @@ function UserProfile() {
           <div className="text-m text-gray-500">{user.country}</div>
           <div className="text-m text-gray-500">{user.bio}</div>
         </div>
+
         <Tab />
       </Card>
     </div>

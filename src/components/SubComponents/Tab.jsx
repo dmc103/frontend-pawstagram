@@ -1,7 +1,11 @@
 import { useState } from "react";
+import Posts from "./PostLists";
+import FriendsList from "./FriendsLists";
+import Card from "./Card";
 import "ionicons";
 
-const Navigation = () => {
+const Tab = () => {
+  const [activeTab, setActiveTab] = useState("Posts");
   const Menus = [
     { name: "Posts", icon: "document-outline", dis: "translate-x-0" },
     { name: "PawFriends", icon: "people-outline", dis: "translate-x-16" },
@@ -15,13 +19,25 @@ const Navigation = () => {
     { name: "Events", icon: "calendar-number-outline", dis: "translate-x-80" },
     { name: "Marketplace", icon: "storefront-outline", dis: "translate-x-96" },
   ];
-  const [active, setActive] = useState(0);
+
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case "Posts":
+        return <Posts />;
+      case "PawFriends":
+        return <FriendsList />;
+      default:
+        return <Posts />;
+    }
+  };
+
+  const activeIndex = Menus.findIndex((menu) => menu.name === activeTab);
 
   return (
     <div className="bg-rose-200 max-h-[5.5rem] px-6 rounded-t-xl scale-95">
       <ul className="flex relative">
         <span
-          className={`bg-rose-200 duration-500 ${Menus[active].dis} border-4 border-white h-16 w-16 absolute -top-5 rounded-full`}
+          className={`bg-rose-200 duration-500 ${Menus[activeIndex]?.dis} border-4 border-white h-16 w-16 absolute -top-5 rounded-full`}
         >
           <span className="w-3.5 h-3.5 bg-transparent absolute top-4 -left-[18px] rounded-tr-[11px] shadow-shadow1"></span>
 
@@ -32,18 +48,18 @@ const Navigation = () => {
           <li key={index} className="w-16">
             <a
               className="flex flex-col text-center pt-6"
-              onClick={() => setActive(index)}
+              onClick={() => setActiveTab(menu.name)}
             >
               <span
                 className={`text-xl cursor-pointer duration-500 ${
-                  index === active && "-mt-6 text-white"
+                  menu.name === activeTab ? "-mt-6 text-white" : ""
                 }`}
               >
                 <ion-icon name={menu.icon} />
               </span>
               <span
                 className={`text-gray-500 text-xs mt-1 ${
-                  active === index
+                  menu.name === activeTab
                     ? "translate-y-4 duration-700 opacity-100"
                     : "opacity-0 translate-y-10"
                 }`}
@@ -54,8 +70,11 @@ const Navigation = () => {
           </li>
         ))}
       </ul>
+      <div className="mt-10 pt-10">
+        <Card>{renderTabContent()}</Card>
+      </div>
     </div>
   );
 };
 
-export default Navigation;
+export default Tab;

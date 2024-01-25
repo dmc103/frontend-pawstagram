@@ -2,12 +2,24 @@ import { useContext } from "react";
 import Card from "./Card";
 import { UserContext } from "../../contexts/UserContext";
 import UserAvatar from "./UserAvatar";
-import firstPost from "../../assets/bestfriend.jpg";
+import PropTypes from "prop-types";
 
-function CardForSharedPost() {
+function CardForSharedPost({ post }) {
   const { user } = useContext(UserContext);
-
   console.log(user);
+
+  if (!post) {
+    return (
+      <div>
+        <Card>
+          <p>There are no posts created yet</p>
+          <a href={`/profile/${user.userName}`} className="cursor-pointer">
+            <p>Check out your profile here, {user.userName}</p>
+          </a>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -39,15 +51,10 @@ function CardForSharedPost() {
         </div> */}
 
       <div>
-        <p className="my-2 text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis
-          aliquam faucibus purus in massa tempor nec. Viverra tellus in hac
-          habitasse. Sed vulputate odio ut enim.{" "}
-        </p>
+        <p className="my-2 text-sm">{post.description}</p>
 
         <div className="rounded-md overflow-hidden">
-          <img src={firstPost} alt="bestfriend" />
+          <img src={post.image} alt="post" />
         </div>
 
         <div className=" flex mt-4">
@@ -123,5 +130,10 @@ function CardForSharedPost() {
     </div>
   );
 }
+
+//props validation
+CardForSharedPost.propTypes = {
+  post: PropTypes.object,
+};
 
 export default CardForSharedPost;
