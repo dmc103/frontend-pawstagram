@@ -50,13 +50,9 @@ function RegisterPage({ toggleFlip }) {
     }
   };
 
-  const testFunction = () => {
-    console.log("test function called");
-  };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg z-10">
+      <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-indigo-900 ">
             WELCOME
@@ -66,15 +62,6 @@ function RegisterPage({ toggleFlip }) {
               ? "REGISTRATION SUCCESSFUL"
               : "PLEASE REGISTER HERE"}
           </p>
-        </div>
-        <div>
-          <button
-            type="button"
-            onClick={testFunction}
-            className="font-medium text-indigo-600 hover:text-indigo-500"
-          >
-            Login Here
-          </button>
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -164,13 +151,16 @@ function RegisterPage({ toggleFlip }) {
                 <div className="relative flex justify-center text-sm">
                   <span className="px-2 bg-white text-gray-500">
                     Have an account?
-                    <button
-                      type="button"
-                      onClick={toggleFlip}
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Login Here
-                    </button>
+                    <div className="test-container">
+                      <button
+                        type="button"
+                        onClick={toggleFlip}
+                        style={{ cursor: "pointer" }}
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        Login Here
+                      </button>
+                    </div>
                   </span>
                 </div>
               </div>
