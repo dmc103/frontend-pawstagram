@@ -1,7 +1,10 @@
 import Card from "./Card";
 import logo from "../../assets/pawstagram.jpg";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import { useContext } from "react";
 
 function NavBar() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const ActiveElement =
     "flex gap-3 py-3 my-2 bg-pawBgFour text-white px-4 -mx-10 md:px-10 md: gap-3 md:scale-100 rounded-md shadow-md shadow-gray-300 small: scale-95";
 
@@ -9,9 +12,12 @@ function NavBar() {
     "flex gap-3 py-2 my-2 hover:bg-pawBgOne -mx-10 px-10 md:px-7 rounded-md transition-all hover:scale-95 hover:shadow-md small: scale-95";
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 pr-6 md:relative md:bottom-auto">
+    <nav className={"fixed inset-x-0 bottom-0 z-50 pr-6 md:relative md:bottom-auto" + theme}>
       <div className="hidden md:flex md:justify-start">
+        <button className="theme-btn" onClick={toggleTheme}>
         <img src={logo} className="rounded-full w-14 h-14 " />
+        {/* {theme === "light" ? "dark" : "light"} */}
+        </button>
         <span className="text-sm mt-4 ml-2 md:block text-orange-300 font-bold">
           Pawstagram
         </span>
@@ -81,7 +87,7 @@ function NavBar() {
           </a>
         </div>
       </Card>
-    </div>
+    </nav>
   );
 }
 

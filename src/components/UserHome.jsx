@@ -5,10 +5,12 @@ import NavBar from "./SubComponents/NavBar";
 import CardForPost from "./SubComponents/CardForPost";
 import CardForSharedPost from "./SubComponents/CardForSharedPost";
 import UserAvatar from "./SubComponents/UserAvatar";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 function UserHome() {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
+  const {theme } = useContext(ThemeContext);
 
   const catSpinner =
     "https://media4.giphy.com/media/wnYB3vx9t6PXiq1ubB/giphy.gif?cid=ecf05e47adpu5m1dewuaidkpywvo7tzpou00hmrzxlduqhw9&ep=v1_gifs_search&rid=giphy.gif&ct=g";
@@ -25,7 +27,7 @@ function UserHome() {
   }
 
   return (
-    <div className="flex mt-4 max-w-4xl mx-auto gap-6">
+    <div className={"flex mt-4 max-w-4xl mx-auto gap-6" + theme}>
       <div>
         <NavBar />
       </div>
