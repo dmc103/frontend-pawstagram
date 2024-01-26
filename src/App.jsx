@@ -10,6 +10,7 @@ import LoginForm from "./components/LoginForm";
 import UserHome from "./components/UserHome";
 import UserProfile from "./components/UserProfile";
 import "ionicons";
+import { ThemeProviderWrapper } from "./contexts/ThemeContext";
 
 function App() {
   const handleLoginSuccess = () => {
@@ -19,6 +20,7 @@ function App() {
   return (
     <Router>
       <UserProvider>
+        <ThemeProviderWrapper>
         <Routes>
           <Route path="/" element={<Navigate replace to="/login" />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -30,6 +32,7 @@ function App() {
           <Route path="/profile/:userName" element={<UserProfile />} />
           <Route path="*" element={<Navigate replace to="/login" />} />
         </Routes>
+        </ThemeProviderWrapper>
       </UserProvider>
     </Router>
   );
