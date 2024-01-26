@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-function RegisterPage() {
+function RegisterPage({ toggleFlip }) {
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -20,6 +20,8 @@ function RegisterPage() {
       alert("Passwords don't match, try again");
       return;
     }
+
+    console.log("Register form submitted");
 
     try {
       const response = await axios.post("http://localhost:5005/auth/register", {
@@ -48,6 +50,10 @@ function RegisterPage() {
     }
   };
 
+  const testFunction = () => {
+    console.log("test function called");
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">
       <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg z-10">
@@ -60,6 +66,15 @@ function RegisterPage() {
               ? "REGISTRATION SUCCESSFUL"
               : "PLEASE REGISTER HERE"}
           </p>
+        </div>
+        <div>
+          <button
+            type="button"
+            onClick={testFunction}
+            className="font-medium text-indigo-600 hover:text-indigo-500"
+          >
+            Login Here
+          </button>
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -118,6 +133,7 @@ function RegisterPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                autoComplete="current-password"
               />
 
               <input
@@ -148,13 +164,13 @@ function RegisterPage() {
                 <div className="relative flex justify-center text-sm">
                   <span className="px-2 bg-white text-gray-500">
                     Have an account?
-                    <Link
-                      to="/login"
+                    <button
+                      type="button"
+                      onClick={toggleFlip}
                       className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
-                      {" "}
-                      Log In
-                    </Link>
+                      Login Here
+                    </button>
                   </span>
                 </div>
               </div>
@@ -165,5 +181,10 @@ function RegisterPage() {
     </div>
   );
 }
+
+//props validation
+RegisterPage.propTypes = {
+  toggleFlip: PropTypes.func.isRequired,
+};
 
 export default RegisterPage;

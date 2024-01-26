@@ -5,11 +5,11 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import RegisterPage from "./components/RegisterPage";
-import LoginForm from "./components/LoginForm";
+import LandingPage from "./components/LandingPage";
 import UserHome from "./components/UserHome";
 import UserProfile from "./components/UserProfile";
 import "ionicons";
+
 import { ThemeProviderWrapper } from "./contexts/ThemeContext";
 
 function App() {
@@ -21,17 +21,16 @@ function App() {
     <Router>
       <UserProvider>
         <ThemeProviderWrapper>
-        <Routes>
-          <Route path="/" element={<Navigate replace to="/login" />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route
-            path="/login"
-            element={<LoginForm onLoginSuccess={handleLoginSuccess} />}
-          />
-          <Route path="/homepage" element={<UserHome />} />
-          <Route path="/profile/:userName" element={<UserProfile />} />
-          <Route path="*" element={<Navigate replace to="/login" />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Navigate replace to="/login" />} />
+            <Route
+              path="/login"
+              element={<LandingPage onLoginSuccess={handleLoginSuccess} />}
+            />
+            <Route path="/homepage" element={<UserHome />} />
+            <Route path="/profile/:userName" element={<UserProfile />} />
+            <Route path="*" element={<Navigate replace to="/login" />} />
+          </Routes>
         </ThemeProviderWrapper>
       </UserProvider>
     </Router>

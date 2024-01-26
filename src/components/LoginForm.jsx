@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
-import logo from "../assets/pawstagram.jpg";
+import logo from "../assets/pawstagram.png";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm({ onLoginSuccess }) {
+function LoginForm({ onLoginSuccess, onFlip }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -64,7 +63,7 @@ function LoginForm({ onLoginSuccess }) {
   };
 
   return (
-    <div className="min-h screen flex items-center justify-center bg-white">
+    <div className="min-h-screen flex items-center justify-center bg-white">
       <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg z-10">
         <div className="text-center sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-3xl font-bold text-indigo-900">
@@ -101,6 +100,7 @@ function LoginForm({ onLoginSuccess }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            autoComplete="current-password"
           />
 
           <div className="flex items-center justify-between">
@@ -137,12 +137,12 @@ function LoginForm({ onLoginSuccess }) {
         <div className="text-center">
           <p className="mt-2 text-sm text-gray-600">
             Don&apos;t have an account?{" "}
-            <Link
-              to="/register"
+            <button
+              onClick={onFlip}
               className="font-medium text-indigo-600 hover:text-indigo-500"
             >
               Register
-            </Link>
+            </button>
           </p>
         </div>
       </div>
@@ -153,6 +153,7 @@ function LoginForm({ onLoginSuccess }) {
 //props validation
 LoginForm.propTypes = {
   onLoginSuccess: PropTypes.func.isRequired,
+  onFlip: PropTypes.func.isRequired,
 };
 
 export default LoginForm;
