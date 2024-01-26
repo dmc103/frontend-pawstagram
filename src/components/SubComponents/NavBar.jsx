@@ -12,19 +12,19 @@ function NavBar() {
     "flex gap-3 py-2 my-2 hover:bg-pawBgOne -mx-10 px-10 md:px-7 rounded-md transition-all hover:scale-95 hover:shadow-md small: scale-95";
 
   return (
-    <nav className={"fixed inset-x-0 bottom-0 z-50 pr-6 md:relative md:bottom-auto" + theme}>
-      <div className="hidden md:flex md:justify-start">
+    <nav className={"fixed inset-x-0 bottom-0 z-50 pr-6 md:relative md:bottom-auto " + theme}>
+      <div className={"hidden md:flex md:justify-start " + theme}>
         <button className="theme-btn" onClick={toggleTheme}>
         <img src={logo} className="rounded-full w-14 h-14 " />
         {/* {theme === "light" ? "dark" : "light"} */}
         </button>
-        <span className="text-sm mt-4 ml-2 md:block text-orange-300 font-bold">
+        <span className={"text-sm mt-4 ml-2 md:block text-orange-300 font-bold " + theme}>
           Pawstagram
         </span>
       </div>
 
       <Card noPadding={true}>
-        <div className="flex justify-around md:block shadow-md shadow-gray-500 md:shadow-none">
+        <div className={"flex justify-around md:block shadow-md shadow-gray-500 md:shadow-none " + theme}>
           <a href="" className={ActiveElement}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -27,13 +27,13 @@ function UserHome() {
   }
 
   return (
-    <div className={"flex mt-4 max-w-4xl mx-auto gap-6" + theme}>
+    <div className={"flex mt-4 max-w-4xl mx-auto gap-6 " + theme}>
       <div>
         <NavBar />
       </div>
-      <div className="w-3/4">
-        <div>
-          <div className="w-full max-w-XL bg-white border border-gray-200 rounded-lg shadow dark:bg-pawBgFour dark:border-emerald-300">
+      <div className={"w-3/4 " + theme}>
+        <div className={theme}>
+          <div className={"w-full max-w-XL bg-white border border-gray-200 rounded-lg shadow dark:bg-pawBgFour dark:border-emerald-300 " + theme }>
             <div className="flex flex-col items-center mt-7 pb-10">
               <UserAvatar isOnline={true} />
 
