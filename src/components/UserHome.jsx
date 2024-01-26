@@ -6,6 +6,7 @@ import CardForPost from "./SubComponents/CardForPost";
 import CardForSharedPost from "./SubComponents/CardForSharedPost";
 import { ThemeContext } from "../contexts/ThemeContext";
 import TopBar from "./SubComponents/TopBar";
+import "../index.css";
 
 function UserHome() {
   const { user } = useContext(UserContext);
