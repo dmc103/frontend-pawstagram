@@ -1,25 +1,31 @@
-import React, { createContext, useState } from 'react'
+import { createContext, useState } from "react";
+import PropTypes from "prop-types";
 
 const ThemeContext = createContext();
 
-function ThemeProviderWrapper(props) {
-    const [theme, setTheme] = useState("light");
+function ThemeProviderWrapper({ children }) {
+  const [theme, setTheme] = useState("light");
 
-    const toggleTheme = () => {
-        if (theme === "light") {
-            setTheme("dark");
-            console.log("change to dark")
-        } else {
-            setTheme("light");
-            console.log("change to light")
-        }
-    };
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+      console.log("change to dark");
+    } else {
+      setTheme("light");
+      console.log("change to light");
+    }
+  };
 
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme}}>
-        {props.children}
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
     </ThemeContext.Provider>
-  )
+  );
 }
 
-export {ThemeContext, ThemeProviderWrapper};
+//PropTypes validation
+ThemeProviderWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export { ThemeContext, ThemeProviderWrapper };

@@ -5,6 +5,7 @@ function UserAvatar({
   isOnline,
   size = "w-14 h-14",
   indicatorPosition = "top-10 start-11",
+  indicatorSize = "w-3.5 h-3.5",
 }) {
   const indicatorColor = isOnline ? "bg-green-500" : "bg-gray-500";
 
@@ -17,7 +18,7 @@ function UserAvatar({
           className="w-full h-full object-cover"
         />
         <div
-          className={`absolute ${indicatorPosition} w-3.5 h-3.5 ${indicatorColor} border-2 border-white rounded-full`}
+          className={`absolute ${indicatorPosition} ${indicatorSize}w-3.5 h-3.5 ${indicatorColor} border-2 border-white rounded-full`}
         ></div>
       </div>
     </div>
@@ -29,6 +30,7 @@ UserAvatar.propTypes = {
   isOnline: PropTypes.bool.isRequired,
   size: PropTypes.string,
   indicatorPosition: PropTypes.string,
+  indicatorSize: PropTypes.string,
 };
 
 export default UserAvatar;
