@@ -59,6 +59,16 @@ h1 {
   color: #F5F7FB;
 }
 
+.dark.button {
+  background-color: #646471;
+} 
+
+.color-bg.dark  {
+  background-color: #424247;
+  border-color: #646471;
+  color: #F5F7FB;
+} 
+
 
 @media (prefers-color-scheme: light) {
   :root {

@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import Card from "./Card";
 import UserAvatar from "./UserAvatar";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 function CardForPost() {
   const { user } = useContext(UserContext);
+  const {theme } = useContext(ThemeContext);
 
   const handleIconClick = () => {
     alert("Icon clicked");
@@ -16,7 +18,7 @@ function CardForPost() {
         <UserAvatar isOnline={true} />
 
         <textarea
-          className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2"
+          className={"w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2 color-bg " + theme }
           placeholder={`What's on your mind, ${user.userName}?`}
         ></textarea>
       </div>
@@ -95,7 +97,7 @@ function CardForPost() {
         <div className="flex justify-end grow">
           <button
             type="submit"
-            className="w-1/2 flex justify-center py-1 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-900 focus:outline-none"
+            className={"w-1/2 flex justify-center py-1 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-900 focus:outline-none button " + theme }
           >
             Post
           </button>
