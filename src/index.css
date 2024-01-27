@@ -138,6 +138,26 @@ h1 {
 }
 
 
+.floating-label-container input + label {
+  font-size: 0.875rem;
+  top:50%;
+  left: 0.75rem;
+  transform: translateY(-50%);  
+}
+
+/* to move the label up on input focus */
+.floating-label-container input:focus + label,
+/* to keep the label at the top if the input is not empty */
+.floating-label-container input:not(:placeholder-shown):not(:focus) + label {
+  top: -2px; 
+  left: 2px; 
+  font-size: 0.75rem; 
+  padding: 6px; 
+  background: white; 
+}
+
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

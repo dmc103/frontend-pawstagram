@@ -80,28 +80,56 @@ function LoginForm({ onLoginSuccess, onFlip }) {
             />
           </div>
         </div>
-        <div className="bg-white py-10 px-2 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              name="email"
-              className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+        <div className=" bg-white py-10 px-2 shadow sm:rounded-lg sm:px-10">
+          <form className=" relative space-y-6" onSubmit={handleSubmit}>
+            <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
+              <input
+                type="email"
+                name="email"
+                className="w-full p-3 rounded-md focus:outline-none"
+                placeholder=""
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
 
-            <input
-              type="password"
-              name="password"
-              className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              autoComplete="current-password"
-            />
+              <label
+                htmlFor="email"
+                className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
+                style={{
+                  transform: email
+                    ? "translateY(-1.5rem) scale(0.75)"
+                    : undefined,
+                }}
+              >
+                Email address
+              </label>
+            </div>
+
+            <div className="relative border border-gray-300 bg-amber-50 rounded-md mt-4 floating-label-container">
+              <input
+                type="password"
+                name="password"
+                className="w-full p-3 rounded-md focus:outline-none"
+                placeholder=""
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                autoComplete="current-password"
+              />
+
+              <label
+                htmlFor="password"
+                className="absolute left-1 top-3 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
+                style={{
+                  transform: password
+                    ? "translateY(-1.5rem) scale(0.50)"
+                    : undefined,
+                }}
+              >
+                Password
+              </label>
+            </div>
 
             <div className="flex items-center justify-between">
               <div className="flex items-center">
