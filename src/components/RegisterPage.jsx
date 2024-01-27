@@ -155,8 +155,7 @@ function RegisterPage({ toggleFlip }) {
                       <button
                         type="button"
                         onClick={toggleFlip}
-                        style={{ cursor: "pointer" }}
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                        className="font-medium text-indigo-600 hover:text-indigo-500 justify-center"
                       >
                         Login Here
                       </button>

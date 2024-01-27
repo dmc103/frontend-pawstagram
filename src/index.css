@@ -100,6 +100,15 @@ h1 {
   height: 100vh
 }
 
+.paw-print-bg {
+  background-image: url('./assets/pawprint.png');
+  background-repeat: no-repeat;
+  background-position: top 1px; 
+  background-size: 650px, cover;
+}
+
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
