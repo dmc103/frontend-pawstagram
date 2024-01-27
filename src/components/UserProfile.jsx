@@ -25,8 +25,8 @@ function UserProfile() {
   }
 
   return (
-    <div className="flex mt-4 max-w-4xl mx-auto gap-6">
-      <div>
+    <div className={"flex mt-4 max-w-4xl mx-auto gap-6 " + theme }>
+      <div className={ theme }>
         <Navbar />
       </div>
 
@@ -46,7 +46,7 @@ function UserProfile() {
         </div>
 
         <div className="flex flex-col justify-center items-center h-44">
-          <div className={"max-w-lg text-xl font-bold leading-normal text-pawBgFour mt-2 mb-2 " + theme}>
+          <div className="max-w-lg text-xl font-bold leading-normal text-pawBgFour mt-2 mb-2">
             <p>{userName}</p>
           </div>
           <div className="text-m text-gray-500">{user.country}</div>

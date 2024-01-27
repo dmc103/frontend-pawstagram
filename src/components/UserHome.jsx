@@ -30,7 +30,7 @@ function UserHome() {
   return (
     <div>
       <TopBar />
-      <div className="w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-hidden">
+      <div className={"w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-hidden no-border " + theme}>
         <div className="flex">
           <div className={"flex mt-4 max-w-4xl mx-auto " + theme}>
             <NavBar />
