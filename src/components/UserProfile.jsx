@@ -6,10 +6,12 @@ import Card from "./SubComponents/Card";
 import banner from "../assets/banner.jpg";
 import UserAvatar from "./SubComponents/UserAvatar";
 import Tab from "./SubComponents/Tab";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 function UserProfile() {
   const { userName } = useParams();
   const { user } = useContext(UserContext);
+  const { theme } = useContext(ThemeContext);
 
   const spinner = "https://i.gifer.com/Xqg8.gif";
 
@@ -44,8 +46,8 @@ function UserProfile() {
         </div>
 
         <div className="flex flex-col justify-center items-center h-44">
-          <div className="max-w-lg text-xl font-bold leading-normal text-pawBgFour mt-2 mb-2 ">
-            {userName}
+          <div className={"max-w-lg text-xl font-bold leading-normal text-pawBgFour mt-2 mb-2 " + theme}>
+            <p>{userName}</p>
           </div>
           <div className="text-m text-gray-500">{user.country}</div>
           <div className="text-m text-gray-500">{user.bio}</div>
