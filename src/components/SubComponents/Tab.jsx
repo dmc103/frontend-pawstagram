@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Posts from "./PostLists";
 import FriendsList from "./FriendsLists";
 import Card from "./Card";
 import "ionicons";
+import { ThemeContext } from "../../contexts/ThemeContext";
+
 
 const Tab = () => {
   const [activeTab, setActiveTab] = useState("Posts");
+  const { theme } = useContext(ThemeContext);
   const Menus = [
     { name: "Posts", icon: "document-outline", dis: "translate-x-0" },
     { name: "PawFriends", icon: "people-outline", dis: "translate-x-16" },
@@ -34,7 +37,7 @@ const Tab = () => {
   const activeIndex = Menus.findIndex((menu) => menu.name === activeTab);
 
   return (
-    <div className="bg-rose-200 max-h-[5.5rem] px-6 rounded-t-xl scale-95">
+    <div className={"bg-rose-200 max-h-[5.5rem] px-6 rounded-t-xl scale-95 color-bg " + theme}>
       <ul className="flex relative">
         <span
           className={`bg-rose-200 duration-500 ${Menus[activeIndex]?.dis} border-4 border-white h-16 w-16 absolute -top-5 rounded-full`}

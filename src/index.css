@@ -58,6 +58,10 @@ h1 {
   color: #F5F7FB;
 }
 
+.dark button:hover{
+  color: #5f6268;
+}
+
 .dark.button {
   background-color: #646471;
 } 
