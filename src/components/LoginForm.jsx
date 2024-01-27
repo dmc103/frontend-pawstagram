@@ -66,7 +66,7 @@ function LoginForm({ onLoginSuccess, onFlip }) {
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg paw-print-bg">
         <div className="text-center sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="mt-6 text-3xl font-bold text-indigo-900">
+          <h2 className="mt-6 text-3xl font-bold text-indigo-900 animate-pulse">
             Welcome back!
           </h2>
           <p className="mt-2 text-sm text-indigo-900">Log in here</p>
