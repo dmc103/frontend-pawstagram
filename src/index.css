@@ -103,8 +103,7 @@ h1 {
 .paw-print-bg {
   background-image: url('./assets/pawprint.png');
   background-repeat: no-repeat;
-  background-position: top 1px; 
-  background-size: 650px, cover;
+  background-size: 450px, cover;
 }
 
 
