@@ -112,7 +112,20 @@ h1 {
 
 }
 
+.hi-greet-bg {
+  background-image: url('./assets/hi.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 950px, cover;
+}
 
+
+.test-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
 
 @media (prefers-color-scheme: light) {

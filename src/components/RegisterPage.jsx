@@ -52,15 +52,12 @@ function RegisterPage({ toggleFlip }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg paw-print-bg">
+      <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg hi-greet-bg">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-indigo-900 ">
-            WELCOME
-          </h2>
-          <p className="mt-2 text-center text-sm text-indigo-700">
+          <p className="mt-16 text-center text-sm text-indigo-900">
             {registerSuccess
               ? "REGISTRATION SUCCESSFUL"
-              : "PLEASE REGISTER HERE"}
+              : "Welcome, register here!"}
           </p>
         </div>
 
@@ -149,18 +146,18 @@ function RegisterPage({ toggleFlip }) {
                   <div className="w-full border-t border-gray-300"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">
+                  <div className="px-2 bg-white text-gray-500">
                     Have an account?
                     <div className="test-container">
                       <button
                         type="button"
                         onClick={toggleFlip}
-                        className="font-medium text-indigo-600 hover:text-indigo-500 justify-center"
+                        className="font-medium text-indigo-600 hover:text-indigo-500 text-center"
                       >
                         Login Here
                       </button>
                     </div>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
