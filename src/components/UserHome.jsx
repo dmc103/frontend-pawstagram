@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
-import NavBar from "./SubComponents/NavBar";
+import Nav from "./SubComponents/Nav";
 import CardForPost from "./SubComponents/CardForPost";
 import CardForSharedPost from "./SubComponents/CardForSharedPost";
 import { ThemeContext } from "../contexts/ThemeContext";
@@ -30,13 +30,18 @@ function UserHome() {
   return (
     <div>
       <TopBar />
-      <div className={"w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-hidden no-border " + theme}>
+      <div
+        className={
+          "w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-hidden no-border " +
+          theme
+        }
+      >
         <div className="flex">
-          <div className={"flex mt-4 max-w-4xl mx-auto " + theme}>
-            <NavBar />
+          <div className={"mt-4 max-w-4xl " + theme}>
+            <Nav />
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col mx-24 mt-4">
             <CardForPost />
             <CardForSharedPost />
           </div>

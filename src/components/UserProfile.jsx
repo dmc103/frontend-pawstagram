@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { useParams } from "react-router-dom";
-import Navbar from "./SubComponents/NavBar";
+import Nav from "./SubComponents/Nav";
 import Card from "./SubComponents/Card";
 import banner from "../assets/banner.jpg";
 import UserAvatar from "./SubComponents/UserAvatar";
@@ -25,9 +25,9 @@ function UserProfile() {
   }
 
   return (
-    <div className={"flex mt-4 max-w-4xl mx-auto gap-6 " + theme }>
-      <div className={ theme }>
-        <Navbar />
+    <div className={"flex mt-4 max-w-4xl mx-auto gap-6 " + theme}>
+      <div className={theme}>
+        <Nav />
       </div>
 
       <Card>

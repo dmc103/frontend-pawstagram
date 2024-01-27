@@ -14,6 +14,8 @@ export default {
         shadow1: "4.1px -5px 0 0 white",
         shadow2: "-4.1px -5px 0 0 white",
       },
+
+      opacity: ["group hover"],
     },
   },
   plugins: [],

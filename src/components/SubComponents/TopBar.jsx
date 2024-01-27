@@ -1,5 +1,5 @@
 import "ionicons";
-import pawstagram from "../../assets/pawstagram.png";
+import pawstagram from "../../assets/logo_2.png";
 import UserAvatar from "./UserAvatar";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useContext } from "react";
@@ -8,7 +8,12 @@ function TopBar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <div className={"w-full flex items-center border-gray-200 px-4 sm:px-6 lg:px-8 bg-pawBgFour color-bg " + theme}>
+    <div
+      className={
+        "w-full flex justify-between items-center border-gray-200 px-4 sm:px-6 lg:px-8 bg-pawBgFour color-bg" +
+        theme
+      }
+    >
       {/* Logo Section */}
       <div className={"flex-shrink-0" + theme}>
         <button className="theme-btn" onClick={toggleTheme}>
@@ -17,28 +22,27 @@ function TopBar() {
       </div>
 
       {/* Search Input */}
-      <div className="flex-1 flex justify-center items-center">
-        <div className="relative w-1/3">
-          <input
-            type="search"
-            className={"pl-4 pr-10 py-2 border rounded-md leading-5 bg-white dark:text-gray-500 focus:outline-none focus:ring-2 focus:ring-pawBgOne focus:border-pawBgOne " + theme }
-            placeholder="Search..."
-          />
-          <button
-            type="button"
-            className="absolute inset-y-0 right-6 flex items-center text-gray-600 hover:text-gray-700 focus:outline-none"
-            aria-label="Search"
-          >
-            <ion-icon
-              name="search-outline"
-              style={{ fontSize: "1.5em" }}
-            ></ion-icon>
-          </button>
+      <div className="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
+        <div className="max-w-lg w-full lg:max-w-xs">
+          <label htmlFor="search" className="relative">
+            <input
+              id="search"
+              type="search"
+              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white dark:text-gray-500 focus:outline-none focus:ring-2 focus:ring-pawBgOne focus:border-pawBgOne text-sm"
+              placeholder="Search..."
+            />
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <ion-icon
+                name="search-outline"
+                style={{ fontSize: "1.5em" }}
+              ></ion-icon>
+            </div>
+          </label>
         </div>
       </div>
 
       {/* Avatar, Notifications, and Logout Button */}
-      <div className="flex items-center gap-4">
+      <div className="ml-4 flex items-center md:ml-6">
         {/* UserAvatar */}
         <UserAvatar
           isOnline={true}
@@ -49,7 +53,7 @@ function TopBar() {
         {/* Notifications Button */}
         <button
           type="button"
-          className="p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
+          className="ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
           aria-label="Notifications"
         >
           <ion-icon
@@ -61,7 +65,7 @@ function TopBar() {
         {/* Logout Button */}
         <button
           type="button"
-          className="p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
+          className="ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
           aria-label="Logout"
         >
           <ion-icon

@@ -21,10 +21,6 @@ a {
   color: #00a19d;
   text-decoration: inherit;
 }
-a:hover {
-  color: #00a19d;
-}
-
 
 
 h1 {
@@ -40,13 +36,7 @@ h1 {
 }
 
 
-.dark {
-  background-color: #2b2c2e;
-}
- 
-.Navbar.dark {
-  background-color: #252526;
-}
+
 
 .dark a,
 .dark p,
@@ -154,6 +144,16 @@ h1 {
   font-size: 0.75rem; 
   padding: 6px; 
   background: white; 
+}
+
+.active-nav-link span:hover {
+  color: whitesmoke; 
+}
+
+@layer components {
+  .sidebar{
+    transition:all .4s ease-in-out;
+  }
 }
 
 
