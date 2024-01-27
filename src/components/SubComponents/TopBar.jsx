@@ -15,9 +15,11 @@ function TopBar() {
       }
     >
       {/* Logo Section */}
-      <div className={"flex-shrink-0" + theme}>
+      <div className="flex-shrink-0">
         <button className="theme-btn" onClick={toggleTheme}>
-          <img src={pawstagram} className="h-14 w-14" alt="Pawstagram logo" />
+          <img src={pawstagram} className="h-14 w-14" 
+          alt="Pawstagram logo" />
+          {/* {theme === "light" ? "dark" : "light"} */}
         </button>
       </div>
 
