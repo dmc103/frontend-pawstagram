@@ -7,12 +7,12 @@ function PasswordResetPage() {
 
   return (
     <div className="bg-pawBgFour h-screen flex flex-col items-center justify-center">
-        <h2 className="text-center text-white mb-12 font-medium text-3xl mt-12">PASSWORD RESET</h2>
-        <div className="bg-amber-50 p-10 shadow-xl shadow-indigo-600/500">
+        <h2 className="text-center text-white mb-12 font-medium text-3xl mt-12 hover:text-indigo-800">PASSWORD RESET</h2>
+        <div className="bg-amber-50 p-10 shadow shadow-indigo-600/500">
         <form className="flex flex-col">
             <label htmlFor="old-pw">
                 <input 
-                className="w-full p-3 bg-amber-200 rounded-2xl mb-10 border border-slate-700"
+                className="w-full p-3 bg-amber-200 rounded-2xl mb-10 border border-slate-700  hover:bg-amber-50"
                 placeholder="Old Password"
                 type="text" 
                 name="old-pw" 
@@ -24,7 +24,7 @@ function PasswordResetPage() {
 
             <label htmlFor="new-pw">
                 <input 
-                className="w-full p-3 border border-slate-700 bg-amber-200 rounded-2xl mb-3"
+                className="w-full p-3 border border-slate-700 bg-amber-200 rounded-2xl mb-3 hover:bg-amber-50"
                 placeholder="New Password"
                 type="password" 
                 name="new-pw" 
@@ -35,7 +35,7 @@ function PasswordResetPage() {
 
             <label htmlFor="new-pw">
                 <input 
-                className="w-full p-3 border border-slate-700 bg-amber-200 rounded-2xl mb-10"
+                className="w-full p-3 border border-slate-700 bg-amber-200 rounded-2xl mb-10  hover:bg-amber-50"
                 placeholder="Confirm New Password"
                 type="password" 
                 name="confirm-pw" 
@@ -45,9 +45,9 @@ function PasswordResetPage() {
             </label>
             <br />
             <button
-            className="h-10 bg-gradient-to-r from-sky-400 to-indigo-600 w-300 rounded-2xl mb-14">Reset Password</button>
+            className="h-10 bg-gradient-to-r from-sky-400 to-indigo-600 w-300 rounded-2xl mb-14 hover:text-white hover:h-12">Reset Password</button>
             <button
-        className="h-10 bg-gradient-to-r from-sky-400 to-indigo-600 w-300 rounded-2xl mb-8">Back</button>
+        className="h-10 bg-gradient-to-r from-sky-400 to-indigo-600 w-300 rounded-2xl mb-8 hover:text-white hover:h-12">Back</button>
         </form>
         </div>
         
