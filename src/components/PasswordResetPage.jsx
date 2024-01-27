@@ -8,11 +8,11 @@ function PasswordResetPage() {
   return (
     <div className="bg-pawBgFour h-screen flex flex-col items-center justify-center">
         <h2 className="text-center text-white mb-12 font-medium text-3xl mt-12 hover:text-indigo-800">PASSWORD RESET</h2>
-        <div className="bg-amber-50 p-10 shadow shadow-indigo-600/500">
+        <div className="bg-amber-50 p-10 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] rounded-md">
         <form className="flex flex-col">
             <label htmlFor="old-pw">
                 <input 
-                className="w-full p-3 bg-amber-200 rounded-2xl mb-10 border border-slate-700  hover:bg-amber-50"
+                className="w-full p-3 bg-amber-50 rounded-2xl mb-10 border border-slate-700  hover:bg-amber-200"
                 placeholder="Old Password"
                 type="text" 
                 name="old-pw" 
@@ -24,7 +24,7 @@ function PasswordResetPage() {
 
             <label htmlFor="new-pw">
                 <input 
-                className="w-full p-3 border border-slate-700 bg-amber-200 rounded-2xl mb-3 hover:bg-amber-50"
+                className="w-full p-3 border border-slate-700 bg-amber-50 rounded-2xl mb-3 hover:bg-amber-200"
                 placeholder="New Password"
                 type="password" 
                 name="new-pw" 
@@ -35,7 +35,7 @@ function PasswordResetPage() {
 
             <label htmlFor="new-pw">
                 <input 
-                className="w-full p-3 border border-slate-700 bg-amber-200 rounded-2xl mb-10  hover:bg-amber-50"
+                className="w-full p-3 border border-slate-700 bg-amber-50 rounded-2xl mb-10  hover:bg-amber-200"
                 placeholder="Confirm New Password"
                 type="password" 
                 name="confirm-pw" 
