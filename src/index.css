@@ -72,6 +72,11 @@ h1 {
   color: #F5F7FB;
 } 
 
+.no-border.dark {
+  border-radius: 0%;
+}
+
+
 /* landing page, card flipping */
 
 .flip-card {
@@ -107,7 +112,8 @@ h1 {
 .paw-print-bg {
   background-image: url('./assets/pawprint.png');
   background-repeat: no-repeat;
-  background-size: 450px, cover;
+  background-position: top 1px; 
+  background-size: 650px, cover;
 }
 
 

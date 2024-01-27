@@ -25,8 +25,8 @@ function UserProfile() {
   }
 
   return (
-    <div className="flex mt-4 max-w-4xl mx-auto gap-6">
-      <div>
+    <div className={"flex mt-4 max-w-4xl mx-auto gap-6 " + theme }>
+      <div className={theme }>
         <Navbar />
       </div>
 
