@@ -69,15 +69,16 @@ function LoginForm({ onLoginSuccess, onFlip }) {
           <h2 className="mt-6 text-3xl font-bold text-indigo-900">
             WELCOME BACK
           </h2>
-          <p className="mt-2 text-sm text-gray-600">You need to Log In first</p>
+          <p className="mt-2 text-sm text-gray-600">Log in here first</p>
 
           <br />
-
-          <img
-            src={logo}
-            alt="Pawstagram logo"
-            className=" relative mx-auto w-40  sm:w-48 md:w-56 lg:w-64 h-auto"
-          />
+          <div>
+            <img
+              src={logo}
+              alt="Pawstagram logo"
+              className="relative mx-auto w-45 sm:w-48 md:w-56 lg:w-64 h-auto"
+            />
+          </div>
         </div>
         <div className="bg-white py-10 px-2 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit}>
