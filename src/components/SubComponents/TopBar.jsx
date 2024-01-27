@@ -10,9 +10,11 @@ function TopBar() {
   return (
     <div className={"w-full flex items-center border-gray-200 px-4 sm:px-6 lg:px-8 bg-pawBgFour color-bg " + theme}>
       {/* Logo Section */}
-      <div className={"flex-shrink-0" + theme}>
+      <div className="flex-shrink-0">
         <button className="theme-btn" onClick={toggleTheme}>
-          <img src={pawstagram} className="h-14 w-14" alt="Pawstagram logo" />
+          <img src={pawstagram} className="h-14 w-14" 
+          alt="Pawstagram logo" />
+          {/* {theme === "light" ? "dark" : "light"} */}
         </button>
       </div>
 
