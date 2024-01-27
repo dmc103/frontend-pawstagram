@@ -52,7 +52,7 @@ function RegisterPage({ toggleFlip }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg">
+      <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg paw-print-bg">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-indigo-900 ">
             WELCOME
