@@ -20,7 +20,7 @@ function Nav() {
   return (
     <div className={"min-h-screen" + theme}>
       <div
-        className="sidebar left-0 top-0 z-10 min-h-screen w-[4.5rem] overflow-hidden border-r hover:w-56 hover:bg-white hover:shadow-lg"
+        className="sidebar left-0 top-0 z-10 min-h-screen w-[4.5rem] overflow-hidden border-r hover:w-56 hover:bg-white hover:shadow-lg "
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
@@ -48,7 +48,7 @@ function Nav() {
                       : nonActiveElement
                   }
                 >
-                  <ion-icon name="home-outline"></ion-icon>
+                  <ion-icon name="home-outline" className="text-2xl"></ion-icon>
                   <span
                     className="transition-opacity duration-300"
                     style={{ opacity: isHovered ? 1 : 0 }}
@@ -66,12 +66,12 @@ function Nav() {
                     isActive ? activeElement : nonActiveElement
                   }
                 >
-                  <ion-icon name="people-outline"></ion-icon>
+                  <ion-icon name="settings-outline"></ion-icon>
                   <span
                     className="transition-opacity duration-300"
                     style={{ opacity: isHovered ? 1 : 0 }}
                   >
-                    Friends
+                    Manage Profile
                   </span>
                 </NavLink>
 

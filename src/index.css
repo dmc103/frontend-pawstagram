@@ -146,9 +146,6 @@ h1 {
   background: white; 
 }
 
-.active-nav-link span:hover {
-  color: whitesmoke; 
-}
 
 @layer components {
   .sidebar{
@@ -180,4 +177,5 @@ h1 {
   .scale-95 {
     transform: scale(0.95); 
   }
+
 }

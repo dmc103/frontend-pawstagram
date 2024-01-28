@@ -5,7 +5,6 @@ import Card from "./Card";
 import "ionicons";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
-
 const Tab = () => {
   const [activeTab, setActiveTab] = useState("Posts");
   const { theme } = useContext(ThemeContext);
@@ -37,7 +36,12 @@ const Tab = () => {
   const activeIndex = Menus.findIndex((menu) => menu.name === activeTab);
 
   return (
-    <div className={"bg-rose-200 max-h-[5.5rem] px-6 rounded-t-xl scale-95 color-bg " + theme}>
+    <div
+      className={
+        "bg-rose-200 max-h-[5.5rem] px-6 rounded-t-xl scale-95 color-bg " +
+        theme
+      }
+    >
       <ul className="flex relative">
         <span
           className={`bg-rose-200 duration-500 ${Menus[activeIndex]?.dis} border-4 border-white h-16 w-16 absolute -top-5 rounded-full`}
@@ -61,7 +65,7 @@ const Tab = () => {
                 <ion-icon name={menu.icon} />
               </span>
               <span
-                className={`text-gray-500 text-xs mt-1 ${
+                className={`text-gray-500 text-xs mt-1 transition-opacity duration-300 ${
                   menu.name === activeTab
                     ? "translate-y-4 duration-700 opacity-100"
                     : "opacity-0 translate-y-10"
