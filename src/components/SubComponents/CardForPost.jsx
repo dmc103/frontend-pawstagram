@@ -18,7 +18,7 @@ function CardForPost() {
         <UserAvatar isOnline={true} />
 
         <textarea
-          className={"w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2 color-bg " + theme }
+          className={"w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2 top-bar " + theme }
           placeholder={`What's on your mind, ${user.userName}?`}
         ></textarea>
       </div>

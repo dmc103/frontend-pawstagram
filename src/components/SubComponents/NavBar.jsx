@@ -18,7 +18,7 @@ function NavBar() {
     <Card noPadding={true}>
       <div
         className={
-          "px-4 py-2 flex justify-between md:block shadow-md shadow-gray-500 md:shadow-none " +
+          "px-4 py-2 flex justify-between md:block shadow-md shadow-gray-500 md:shadow-none top-bar " +
           theme
         }
       >

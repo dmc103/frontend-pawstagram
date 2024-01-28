@@ -1,14 +1,45 @@
+import axios from "axios";
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 function PasswordResetPage() {
     const [oldPassword, setOldPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [passwordStatus, setPasswordStatus] = useState("");
 
+    const navigate = useNavigate();
+
+    const handleResetPassword = async (e) => {
+        e.preventDefault();
+        try {
+            console.log("reset button clicked");
+            const response = await axios.post("http://localhost:5005/password-reset", {newPassword})
+            if (!newPassword || !confirmPassword) {
+                setPasswordStatus("Please provide and confirm the new password.")
+            }
+            else if (newPassword && confirmPassword && newPassword === confirmPassword) {
+                setPasswordStatus("Password reset. Redirecting to login page...");
+                setTimeout(() => {
+                    navigate("login");
+                }, 3000);
+            } else {
+                setPasswordStatus("Passwords didn't match. Please try again.");
+            }
+        } catch (err) {
+            console.log(err)
+        }        
+    }
+
+    const handleBack = (e) => {
+        e.preventDefault();
+        console.log("back button clicked");
+        navigate("/login");
+    }
   return (
-    <div className="bg-pawBgFour h-screen flex flex-col items-center justify-center">
+    <div className="bg-pawBgFour sm: min-h-screen flex flex-col items-center justify-center">
         <h2 className="text-center text-white mb-12 font-medium text-3xl mt-12 hover:text-indigo-800">PASSWORD RESET</h2>
-        <div className="bg-amber-50 p-10 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] rounded-md">
+        <div className="bg-amber-50 p-10 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] rounded-md sm:w-full sm:max-w-md">
         <form className="flex flex-col">
             <label htmlFor="old-pw">
                 <input 
@@ -33,9 +64,9 @@ function PasswordResetPage() {
                 onChange={(e) => {setNewPassword(e.target.value)}}/>
             </label>
 
-            <label htmlFor="new-pw">
+            <label htmlFor="confirm-pw">
                 <input 
-                className="w-full p-3 border border-slate-700 bg-amber-50 rounded-2xl mb-10  hover:bg-amber-200"
+                className="w-full p-3 border border-slate-700 bg-amber-50 rounded-2xl mb-2 hover:bg-amber-200"
                 placeholder="Confirm New Password"
                 type="password" 
                 name="confirm-pw" 
@@ -43,11 +74,14 @@ function PasswordResetPage() {
                 value={confirmPassword} 
                 onChange={(e) => {setConfirmPassword(e.target.value)}}/>
             </label>
+
+            <p className="text-red-600 font-medium blink_me text-center">{passwordStatus}</p>
+
             <br />
             <button
-            className="h-10 bg-gradient-to-r from-sky-400 to-indigo-600 w-300 rounded-2xl mb-14 hover:text-white hover:h-12">Reset Password</button>
+            className="mt-5 h-10 bg-gradient-to-r from-sky-400 to-indigo-600 w-300 rounded-2xl mb-14 hover:text-white hover:h-12 border-2 border-amber-100" onClick={handleResetPassword}>Reset Password</button>
             <button
-        className="h-10 bg-gradient-to-r from-sky-400 to-indigo-600 w-300 rounded-2xl mb-8 hover:text-white hover:h-12">Back</button>
+        className="h-10 bg-gradient-to-r from-sky-400 to-indigo-600 w-300 rounded-2xl mb-8 hover:text-white hover:h-12 border-2 border-amber-100" onClick={handleBack}>Back</button>
         </form>
         </div>
         
