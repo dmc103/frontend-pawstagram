@@ -3,10 +3,10 @@ import { UserContext } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import Nav from "./SubComponents/Nav";
 import CardForPost from "./SubComponents/CardForPost";
-import CardForSharedPost from "./SubComponents/CardForSharedPost";
 import { ThemeContext } from "../contexts/ThemeContext";
 import TopBar from "./SubComponents/TopBar";
 import "../index.css";
+import Feed from "./SubComponents/UserFeed";
 
 function UserHome() {
   const { user } = useContext(UserContext);
@@ -43,7 +43,7 @@ function UserHome() {
 
           <div className="flex flex-col mx-24 mt-4">
             <CardForPost />
-            <CardForSharedPost />
+            <Feed />
           </div>
         </div>
       </div>
