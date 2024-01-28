@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
@@ -9,26 +10,30 @@ function PasswordResetPage() {
 
     const navigate = useNavigate();
 
-    const handleResetPassword = (e) => {
+    const handleResetPassword = async (e) => {
         e.preventDefault();
-        console.log("handleReset");
-        if (!newPassword || !confirmPassword) {
-            setPasswordStatus("Please provide and confirm the new password.")
-        }
-        else if (newPassword && confirmPassword && newPassword === confirmPassword) {
-            setPasswordStatus("Password reset. Redirecting to login page...");
-            setTimeout(() => {
-                navigate("login");
-            }, 3000);
-        } else {
-            setPasswordStatus("Passwords didn't match. Please try again.");
-        }
-        
+        try {
+            console.log("reset button clicked");
+            const response = await axios.post("http://localhost:5005/password-reset", {newPassword})
+            if (!newPassword || !confirmPassword) {
+                setPasswordStatus("Please provide and confirm the new password.")
+            }
+            else if (newPassword && confirmPassword && newPassword === confirmPassword) {
+                setPasswordStatus("Password reset. Redirecting to login page...");
+                setTimeout(() => {
+                    navigate("login");
+                }, 3000);
+            } else {
+                setPasswordStatus("Passwords didn't match. Please try again.");
+            }
+        } catch (err) {
+            console.log(err)
+        }        
     }
 
     const handleBack = (e) => {
         e.preventDefault();
-        console.log("handleBack");
+        console.log("back button clicked");
         navigate("/login");
     }
   return (

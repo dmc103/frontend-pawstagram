@@ -148,7 +148,7 @@ function LoginForm({ onLoginSuccess, onFlip }) {
               </div>
               <div className="text-sm">
                 <a
-                  href="#"
+                  href="/password-reset"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   Forgot your password?

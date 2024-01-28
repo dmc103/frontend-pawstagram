@@ -10,7 +10,7 @@ function TopBar() {
   return (
     <div
       className={
-        "w-full flex justify-between items-center border-gray-200 px-4 sm:px-6 lg:px-8 bg-pawBgFour color-bg" +
+        "w-full flex justify-between items-center border-gray-200 px-4 sm:px-6 lg:px-8 bg-pawBgFour top-bar " +
         theme
       }
     >
@@ -30,7 +30,7 @@ function TopBar() {
             <input
               id="search"
               type="search"
-              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white dark:text-gray-500 focus:outline-none focus:ring-2 focus:ring-pawBgOne focus:border-pawBgOne text-sm"
+              className={"block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white dark:text-gray-500 focus:outline-none focus:ring-2 focus:ring-pawBgOne focus:border-pawBgOne text-sm color-bg " + theme}
               placeholder="Search..."
             />
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
