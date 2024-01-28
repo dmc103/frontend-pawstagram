@@ -36,8 +36,8 @@ function UserHome() {
           theme
         }
       >
-        <div className="flex">
-          <div className={"mt-4 max-w-4xl " + theme}>
+        <div className={"flex " + theme}>
+          <div className={"mt-4 max-w-4xl color-bg " + theme}>
             <Nav />
           </div>
 
