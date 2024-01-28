@@ -97,9 +97,7 @@ function LoginForm({ onLoginSuccess, onFlip }) {
                 htmlFor="email"
                 className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                 style={{
-                  transform: email
-                    ? "translateY(-1.5rem) scale(0.75)"
-                    : undefined,
+                  transform: email ? "translateY(-1rem)" : undefined,
                 }}
               >
                 Email address
@@ -122,9 +120,7 @@ function LoginForm({ onLoginSuccess, onFlip }) {
                 htmlFor="password"
                 className="absolute left-1 top-3 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                 style={{
-                  transform: password
-                    ? "translateY(-1.5rem) scale(0.50)"
-                    : undefined,
+                  transform: password ? "translateY(-1rem)" : undefined,
                 }}
               >
                 Password
