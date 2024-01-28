@@ -72,6 +72,16 @@ h1 {
   width: 100vw;
 }
 
+.blink_me {
+  animation: blinker 5s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: .5;
+  }
+}
+
 /* landing page, card flipping */
 
 .flip-card {
