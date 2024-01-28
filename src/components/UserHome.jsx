@@ -6,7 +6,7 @@ import CardForPost from "./SubComponents/CardForPost";
 import { ThemeContext } from "../contexts/ThemeContext";
 import TopBar from "./SubComponents/TopBar";
 import "../index.css";
-import Feed from "./SubComponents/UserFeed";
+import SharedPostsList from "./SubComponents/SharedPostsList";
 
 function UserHome() {
   const { user } = useContext(UserContext);
@@ -43,7 +43,8 @@ function UserHome() {
 
           <div className="flex flex-col mx-24 mt-4">
             <CardForPost />
-            <Feed />
+
+            {user && <SharedPostsList userId={user._id} />}
           </div>
         </div>
       </div>

@@ -1,28 +1,20 @@
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
+import { useContext, useState } from "react";
 import Card from "./Card";
 import { UserContext } from "../../contexts/UserContext";
 import UserAvatar from "./UserAvatar";
 import PropTypes from "prop-types";
 import "ionicons";
+import { formatDistanceToNow } from "date-fns";
 
 function CardForSharedPost({ post }) {
-  const [posts, setPosts] = useState([]);
   const { user } = useContext(UserContext);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:5005/posts/timeline/${user._id}`
-        );
-        setPosts(response.data);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
-    fetchPosts();
-  }, [user._id]);
+  const timeAgo = formatDistanceToNow(new Date(post.createdAt), {
+    addSuffix: true,
+  });
+  const [showComments, setShowComments] = useState(false);
+  const toggleComments = () => {
+    setShowComments(!showComments);
+  };
 
   if (!post) {
     return (
@@ -36,6 +28,7 @@ function CardForSharedPost({ post }) {
       </div>
     );
   }
+  console.log("this is the post", post);
 
   return (
     <div>
@@ -54,22 +47,19 @@ function CardForSharedPost({ post }) {
             shared a post
           </p>
 
-          <p className="text-sm text-gray-500 px-2">1 hour ago</p>
+          <p className="text-sm text-gray-500 px-2">{timeAgo}</p>
         </div>
       </div>
 
       <div>
-        {/* this is where the shared post will be displayed */}
+        <p className="my-2 text-XL text-gray-500">{post.desc}</p>
 
-        {posts.map((post) => (
-          <CardForSharedPost key={post._id} post={post} />
-        ))}
-
-        <p className="my-2 text-sm">{post.description}</p>
-
-        <div className="rounded-md overflow-hidden">
-          <img src={post.image} alt="post" />
-        </div>
+        {/* post and image rendering */}
+        {post.img && (
+          <div className="rounded-md overflow-hidden">
+            <img src={post.img} alt="shared content" />
+          </div>
+        )}
 
         <div className=" flex mt-4">
           {/* like button */}
@@ -81,7 +71,10 @@ function CardForSharedPost({ post }) {
 
           {/* comment button */}
           <div>
-            <button className="flex gap-2 px-4 items-center">
+            <button
+              onClick={toggleComments}
+              className="flex gap-2 px-4 items-center"
+            >
               <ion-icon name="chatbubble-outline">4</ion-icon>
             </button>
           </div>
@@ -95,15 +88,17 @@ function CardForSharedPost({ post }) {
         </div>
 
         {/* comment space */}
-        <div className="flex mt-4 gap-3">
-          <div>
-            <UserAvatar isOnline={true} />
+        {showComments && (
+          <div className="flex mt-4 gap-3">
+            <div>
+              <UserAvatar isOnline={true} />
+            </div>
+            <textarea
+              className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2"
+              placeholder="Leave a comment"
+            ></textarea>
           </div>
-          <textarea
-            className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2"
-            placeholder="Leave a comment"
-          ></textarea>
-        </div>
+        )}
       </div>
 
       <Card />

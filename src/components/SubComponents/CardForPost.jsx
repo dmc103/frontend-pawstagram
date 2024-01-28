@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
+import axios from "axios";
 import Card from "./Card";
 import UserAvatar from "./UserAvatar";
 import { ThemeContext } from "../../contexts/ThemeContext";
@@ -8,9 +9,51 @@ import "ionicons";
 function CardForPost() {
   const { user } = useContext(UserContext);
   const { theme } = useContext(ThemeContext);
+  const [postDescription, setPostDescription] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleIconClick = () => {
     alert("Icon clicked");
+  };
+
+  const handleImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setSelectedImage(event.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("desc", postDescription);
+    if (selectedImage) {
+      formData.append("img", selectedImage);
+    }
+
+    try {
+      const token = localStorage.getItem("authToken");
+
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await axios.post(
+        "http://localhost:5005/posts/create",
+        formData,
+        config
+      );
+      console.log(response);
+      alert("Post created successfully!");
+
+      setPostDescription("");
+      setSelectedImage(null);
+    } catch (error) {
+      console.log("Error creating post: ", error);
+      alert("Failed to create a post, try again");
+    }
   };
 
   return (
@@ -24,8 +67,13 @@ function CardForPost() {
             theme
           }
           placeholder={`What's on your mind, ${user.userName}?`}
+          value={postDescription}
+          onChange={(event) => setPostDescription(event.target.value)}
+          required
         ></textarea>
       </div>
+
+      <input type="file" name="image" onChange={handleImageChange} />
 
       <div className="flex gap-7 items-center mt-2">
         <div>
@@ -49,18 +97,7 @@ function CardForPost() {
             className="checkinButton flex gap-1"
             style={{ color: "#808080", fontSize: "15px" }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className=" icon w-6 h-6"
-            >
-              <path
-                fillRule="evenodd"
-                d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                clipRule="evenodd"
-              />
-            </svg>
+            <ion-icon name="location"></ion-icon>
             Check-in
           </button>
         </div>
@@ -81,6 +118,7 @@ function CardForPost() {
         <div className="flex justify-end grow">
           <button
             type="submit"
+            onClick={handleSubmit}
             className={
               "w-1/2 flex justify-center py-1 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-900 focus:outline-none button " +
               theme
