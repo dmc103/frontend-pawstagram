@@ -12,7 +12,10 @@ function PasswordResetPage() {
     const handleResetPassword = (e) => {
         e.preventDefault();
         console.log("handleReset");
-        if (newPassword === confirmPassword) {
+        if (!newPassword || !confirmPassword) {
+            setPasswordStatus("Please provide and confirm the new password.")
+        }
+        else if (newPassword && confirmPassword && newPassword === confirmPassword) {
             setPasswordStatus("Password reset. Redirecting to login page...");
             setTimeout(() => {
                 navigate("login");
@@ -29,7 +32,7 @@ function PasswordResetPage() {
         navigate("/login");
     }
   return (
-    <div className="bg-pawBgFour h-screen flex flex-col items-center justify-center">
+    <div className="bg-pawBgFour sm: min-h-screen flex flex-col items-center justify-center">
         <h2 className="text-center text-white mb-12 font-medium text-3xl mt-12 hover:text-indigo-800">PASSWORD RESET</h2>
         <div className="bg-amber-50 p-10 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] rounded-md">
         <form className="flex flex-col">
@@ -67,7 +70,7 @@ function PasswordResetPage() {
                 onChange={(e) => {setConfirmPassword(e.target.value)}}/>
             </label>
 
-            <p className="text-red-600 font-medium blink_me">{passwordStatus}</p>
+            <p className="text-red-600 font-medium blink_me text-center">{passwordStatus}</p>
 
             <br />
             <button

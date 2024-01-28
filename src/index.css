@@ -78,7 +78,7 @@ h1 {
 
 @keyframes blinker {
   50% {
-    opacity: .5;
+    opacity: .8;
   }
 }
 
