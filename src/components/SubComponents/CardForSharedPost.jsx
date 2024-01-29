@@ -20,7 +20,7 @@ function CardForSharedPost({ post }) {
     return (
       <div>
         <Card>
-          <p>There are no posts created yet</p>
+          <p>fetching post...</p>
           <a href={`/profile/${user.userName}`} className="cursor-pointer">
             <p>Check out your profile here, {user.userName}</p>
           </a>
@@ -61,7 +61,7 @@ function CardForSharedPost({ post }) {
           </div>
         )}
 
-        <div className=" flex mt-4">
+        <div className=" flex mt-4 mb-5">
           {/* like button */}
           <div>
             <button className="flex gap-2 items-center">

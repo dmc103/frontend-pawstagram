@@ -31,8 +31,7 @@ function SharedPostsList({ userId }) {
   if (posts.length === 0) {
     return (
       <Card>
-        <p>There are no posts created yet.</p>
-        {/* ... link to user's profile */}
+        <p>loading...</p>
       </Card>
     );
   }
