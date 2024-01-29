@@ -1,25 +1,25 @@
 // import { useState } from "react";
 // import { Link, useNavigate, useParams } from "react-router-dom";
-// import axios from 'axios'
-
+// import axios from "axios";
 
 // function ResetPassword() {
-//     const [password, setPassword] = useState()
-//     const navigate = useNavigate()
-//     const {id, token} = useParams()
+//   const [password, setPassword] = useState();
+//   const navigate = useNavigate();
+//   const { id, token } = useParams();
 
-//     axios.defaults.withCredentials = true;
-//     const handleSubmit = async(email) => {
-//       try {
-//         const response = await axios.post ('/reset-password/:id/:token', {email: email});
-
-//       } catch (err) {
-//         console.log(err)
-//       }
+//   axios.defaults.withCredentials = true;
+//   const handleSubmit = async (email) => {
+//     try {
+//       const response = await axios.post("/reset-password/:id/:token", {
+//         email: email,
+//       });
+//     } catch (err) {
+//       console.log(err);
 //     }
+//   };
 
-//     return(
-//         <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
+//   return (
+//     <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
 //       <div className="bg-white p-3 rounded w-25">
 //         <h4>Reset Password</h4>
 //         <form onSubmit={handleSubmit}>
@@ -39,11 +39,10 @@
 //           <button type="submit" className="btn btn-success w-100 rounded-0">
 //             Update
 //           </button>
-//           </form>
-        
+//         </form>
 //       </div>
 //     </div>
-//     )
+//   );
 // }
 
 // export default ResetPassword;
