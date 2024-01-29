@@ -20,7 +20,7 @@ function Nav() {
   return (
     <div className={"min-h-screen " + theme}>
       <div
-        className="sidebar left-0 top-0 z-10 min-h-screen w-[4.5rem] overflow-hidden border-r hover:w-56 hover:bg-white hover:shadow-lg "
+        className={"sidebar left-0 top-0 z-10 min-h-screen w-[4.5rem] overflow-hidden border-r hover:w-56 hover:bg-white hover:shadow-lg color-bg " + theme}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
