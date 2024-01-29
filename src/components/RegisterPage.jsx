@@ -80,9 +80,7 @@ function RegisterPage({ toggleFlip }) {
                   htmlFor="email"
                   className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                   style={{
-                    transform: email
-                      ? "translateY(-1.5rem) scale(0.75)"
-                      : undefined,
+                    transform: email ? "translateY(-1rem)" : undefined,
                   }}
                 >
                   Email address
@@ -105,9 +103,7 @@ function RegisterPage({ toggleFlip }) {
                   htmlFor="username"
                   className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                   style={{
-                    transform: userName
-                      ? "translateY(-1.5rem) scale(0.75)"
-                      : undefined,
+                    transform: userName ? "translateY(-1rem)" : undefined,
                   }}
                 >
                   Username
@@ -130,9 +126,7 @@ function RegisterPage({ toggleFlip }) {
                   htmlFor="firstname"
                   className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                   style={{
-                    transform: firstName
-                      ? "translateY(-1.5rem) scale(0.75)"
-                      : undefined,
+                    transform: firstName ? "translateY(-1rem)" : undefined,
                   }}
                 >
                   First Name
@@ -155,9 +149,7 @@ function RegisterPage({ toggleFlip }) {
                   htmlFor="lastname"
                   className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                   style={{
-                    transform: lastName
-                      ? "translateY(-1.5rem) scale(0.75)"
-                      : undefined,
+                    transform: lastName ? "translateY(-1rem)" : undefined,
                   }}
                 >
                   Last Name
@@ -181,9 +173,7 @@ function RegisterPage({ toggleFlip }) {
                   htmlFor="password"
                   className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                   style={{
-                    transform: password
-                      ? "translateY(-1.5rem) scale(0.75)"
-                      : undefined,
+                    transform: password ? "translateY(-1rem)" : undefined,
                   }}
                 >
                   Password
@@ -205,9 +195,7 @@ function RegisterPage({ toggleFlip }) {
                   htmlFor="password"
                   className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                   style={{
-                    transform: password
-                      ? "translateY(-1.5rem) scale(0.75)"
-                      : undefined,
+                    transform: password ? "translateY(-1rem)" : undefined,
                   }}
                 >
                   Confirm Password

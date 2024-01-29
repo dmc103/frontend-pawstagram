@@ -4,10 +4,13 @@ import FriendsList from "./FriendsLists";
 import Card from "./Card";
 import "ionicons";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import SharedPostsList from "./SharedPostsList";
+import { UserContext } from "../../contexts/UserContext";
 
 const Tab = () => {
   const [activeTab, setActiveTab] = useState("Posts");
   const { theme } = useContext(ThemeContext);
+  const { user } = useContext(UserContext);
   const Menus = [
     { name: "Posts", icon: "document-outline", dis: "translate-x-0" },
     { name: "PawFriends", icon: "people-outline", dis: "translate-x-16" },
@@ -25,7 +28,7 @@ const Tab = () => {
   const renderTabContent = () => {
     switch (activeTab) {
       case "Posts":
-        return <Posts />;
+        return user && <SharedPostsList userId={user._id} />;
       case "PawFriends":
         return <FriendsList />;
       default:

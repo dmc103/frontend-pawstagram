@@ -3,10 +3,10 @@ import { UserContext } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import Nav from "./SubComponents/Nav";
 import CardForPost from "./SubComponents/CardForPost";
-import CardForSharedPost from "./SubComponents/CardForSharedPost";
 import { ThemeContext } from "../contexts/ThemeContext";
 import TopBar from "./SubComponents/TopBar";
 import "../index.css";
+import SharedPostsList from "./SubComponents/SharedPostsList";
 
 function UserHome() {
   const { user } = useContext(UserContext);
@@ -32,7 +32,7 @@ function UserHome() {
       <TopBar />
       <div
         className={
-          "w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-hidden no-border color-bg " +
+          " w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-auto no-border color-bg " +
           theme
         }
       >
@@ -43,7 +43,8 @@ function UserHome() {
 
           <div className="flex flex-col mx-24 mt-4">
             <CardForPost />
-            <CardForSharedPost />
+
+            {user && <SharedPostsList userId={user._id} />}
           </div>
         </div>
       </div>
