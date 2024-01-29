@@ -135,6 +135,13 @@ h1 {
   background-size: 950px, cover;
 }
 
+.manage-bg {
+  background-image: url('./assets/manage.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 950px, cover;
+}
+
 
 .test-container {
   display: flex;

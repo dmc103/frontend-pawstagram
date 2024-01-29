@@ -11,6 +11,7 @@ import UserProfile from "./components/UserProfile";
 import "ionicons";
 import { ThemeProviderWrapper } from "./contexts/ThemeContext";
 import ForgotPassword from "./components/SubComponents/ForgotPassword";
+import ManageProfile from "./components/SubComponents/ManageProfile";
 
 function App() {
   const handleLoginSuccess = () => {
@@ -29,9 +30,8 @@ function App() {
             />
             <Route path="/homepage" element={<UserHome />} />
             <Route path="/profile/:userName" element={<UserProfile />} />
-
+            <Route path="/manageprofile" element={<ManageProfile />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
-
             <Route path="*" element={<Navigate replace to="/login" />} />
           </Routes>
         </ThemeProviderWrapper>
