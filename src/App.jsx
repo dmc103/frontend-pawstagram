@@ -11,7 +11,8 @@ import UserProfile from "./components/UserProfile";
 import "ionicons";
 
 import { ThemeProviderWrapper } from "./contexts/ThemeContext";
-import PasswordResetPage from "./components/PasswordResetPage";
+
+import ForgotPassword from "./components/SubComponents/ForgotPassword";
 
 function App() {
   const handleLoginSuccess = () => {
@@ -30,7 +31,7 @@ function App() {
             />
             <Route path="/homepage" element={<UserHome />} />
             <Route path="/profile/:userName" element={<UserProfile />} />
-            <Route path="/password-reset" element={<PasswordResetPage />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="*" element={<Navigate replace to="/login" />} />
           </Routes>
         </ThemeProviderWrapper>
