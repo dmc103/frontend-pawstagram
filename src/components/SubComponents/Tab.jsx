@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import Posts from "./PostLists";
 import FriendsList from "./FriendsLists";
 import Card from "./Card";
 import "ionicons";
@@ -32,7 +31,7 @@ const Tab = () => {
       case "PawFriends":
         return <FriendsList />;
       default:
-        return <Posts />;
+        return user && <SharedPostsList userId={user._id} />;
     }
   };
 
