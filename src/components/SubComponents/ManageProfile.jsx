@@ -61,117 +61,129 @@ function ManageProfile() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg manage-bg">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <p className="mt-16 text-center text-sm text-indigo-900">
-            Manage Profile
-          </p>
-        </div>
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="mt-16 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6" onSubmit={handleInputChange}>
               <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
-                <label
-                  className="absolute text-gray-500 pointer-events-none -translate-y-6 scale-75"
-                  htmlFor="username"
-                >
-                  Username:
-                </label>
                 <input
-                  type="text"
-                  id="userName"
+                  type="username"
                   name="username"
+                  id="username"
                   className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  value={formData.username}
-                  onChange={handleInputChange}
+                  placeholder=""
+                  value=""
                 />
+
+                <label
+                  htmlFor="username"
+                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
+                >
+                  Username
+                </label>
               </div>
 
               <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
+                <input
+                  type="firstname"
+                  name="firstname"
+                  id="firstname"
+                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
+                  placeholder=""
+                  value=""
+                />
+
                 <label
-                  className="absolute text-gray-500 pointer-events-none -translate-y-6 scale-75"
-                  htmlFor="email"
+                  htmlFor="firstname"
+                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                 >
-                  Email:
+                  First Name
                 </label>
+              </div>
+
+              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
+                <input
+                  type="lastname"
+                  name="lastname"
+                  id="lastname"
+                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
+                  placeholder=""
+                  value=""
+                />
+
+                <label
+                  htmlFor="lastname"
+                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
+                >
+                  Last Name
+                </label>
+              </div>
+
+              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
                 <input
                   type="email"
-                  id="email"
                   name="email"
+                  id="email"
                   className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  value={formData.email}
-                  onChange={handleInputChange}
+                  placeholder=""
+                  value=""
                 />
-              </div>
 
-              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
                 <label
-                  className="absolute text-gray-500 pointer-events-none -translate-y-6 scale-75"
-                  htmlFor="firstname"
+                  htmlFor="email"
+                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                 >
-                  First Name:
+                  Email
                 </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstname"
-                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  value={formData.firstname}
-                  onChange={handleInputChange}
-                />
               </div>
-
               <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
-                <label
-                  className="absolute text-gray-500 pointer-events-none -translate-y-6 scale-75"
-                  htmlFor="lastname"
-                >
-                  Last Name:
-                </label>
                 <input
-                  type="text"
-                  id="lastName"
-                  name="lastname"
-                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  value={formData.lastname}
-                  onChange={handleInputChange}
-                />
-              </div>
-
-              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
-                <label
-                  className="absolute text-gray-500 pointer-events-none -translate-y-6 scale-75"
-                  htmlFor="bio"
-                >
-                  Bio:
-                </label>
-                <input
-                  type="text"
-                  id="bio"
+                  type="bio"
                   name="bio"
+                  id="bio"
                   className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  value={formData.bio}
-                  onChange={handleInputChange}
+                  placeholder=""
+                  value=""
                 />
-              </div>
 
-              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
                 <label
-                  className="absolute text-gray-500 pointer-events-none -translate-y-6 scale-75"
-                  htmlFor="country"
+                  htmlFor="bio"
+                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                 >
-                  Country:
+                  Bio
                 </label>
-                <input
-                  type="text"
-                  id="country"
-                  name="country"
-                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  value={formData.country}
-                  onChange={handleInputChange}
-                />
               </div>
 
-              <button type="submit">Save Changes</button>
+              <div>
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-900"
+                >
+                  Save Changes
+                </button>
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-900"
+                >
+                  Cancel
+                </button>
+                <div className="relative flex justify-center text-sm">
+                  <div className="px-2 mt-6 bg-white text-gray-500">
+                    Want to manage your password, too?
+                    <div className="test-container">
+                      {/* todo: add link to change password page */}
+                      <button
+                        type="button"
+                        className="font-medium text-indigo-600 hover:text-indigo-500 text-center"
+                      >
+                        Click here
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
         </div>
