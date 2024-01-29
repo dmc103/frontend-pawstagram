@@ -11,8 +11,13 @@ import UserProfile from "./components/UserProfile";
 import "ionicons";
 
 import { ThemeProviderWrapper } from "./contexts/ThemeContext";
+<<<<<<< HEAD
 
 import ForgotPassword from "./components/SubComponents/ForgotPassword";
+=======
+import ForgotPasswordPage from "./components/ForgotPasswordPage";
+import ResetPasswordPage from "./components/ResetPasswordPage";
+>>>>>>> 017035f42b279a76e4b7c6e639dd46a089eb53d8
 
 function App() {
   const handleLoginSuccess = () => {
@@ -31,7 +36,12 @@ function App() {
             />
             <Route path="/homepage" element={<UserHome />} />
             <Route path="/profile/:userName" element={<UserProfile />} />
+<<<<<<< HEAD
             <Route path="/forgot-password" element={<ForgotPassword />} />
+=======
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/reset-password/:id/:token" element={<ResetPasswordPage />} />
+>>>>>>> 017035f42b279a76e4b7c6e639dd46a089eb53d8
             <Route path="*" element={<Navigate replace to="/login" />} />
           </Routes>
         </ThemeProviderWrapper>
