@@ -1,10 +1,17 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "../../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
+import { countries } from "countries-list";
 
 function ManageProfile() {
   const { user, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  const handleCancel = () => {
+    navigate(`/profile/${user.userName}`);
+  };
   const [formData, setFormData] = useState({
     username: "",
     firstname: "",
@@ -13,6 +20,8 @@ function ManageProfile() {
     bio: "",
     country: "",
   });
+
+  const countryNames = Object.values(countries).map((country) => country.name);
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -52,7 +61,7 @@ function ManageProfile() {
       setUser({ ...user, ...formData });
 
       //to redirect to user profile page
-      history.push("/user-profile");
+      navigate("/user-profile");
     } catch (error) {
       console.error("Error updating profile:", error);
     }
@@ -153,6 +162,28 @@ function ManageProfile() {
                 </label>
               </div>
 
+              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
+                <label
+                  htmlFor="country"
+                  className="absolute top-1 bottom-6 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
+                >
+                  Country
+                </label>
+                <select
+                  id="country"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleInputChange}
+                  className="block w-full p-2 border border-gray-300 bg-amber-50 rounded-md"
+                >
+                  {countryNames.map((countryName) => (
+                    <option key={countryName} value={countryName}>
+                      {countryName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
               <div>
                 <button
                   type="submit"
@@ -165,6 +196,7 @@ function ManageProfile() {
               <div>
                 <button
                   type="submit"
+                  onClick={handleCancel}
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-900"
                 >
                   Cancel
