@@ -2,7 +2,7 @@
 // import { useState } from "react"
 // import { Link, useNavigate } from "react-router-dom";
 
-// function ForgotPasswordPage() {
+function ForgotPasswordPage() {
 //     const [email, setEmail] = useState("");
 //     const navigate = useNavigate();
 
@@ -53,6 +53,6 @@
         
 //     </div>  
 //   )
-// }
+}
 
-// export default ForgotPasswordPage
+export default ForgotPasswordPage
