@@ -33,7 +33,7 @@ function ProfilePicUploader({ onImageUpload }) {
           publicId="https://res.cloudinary.com/dl7j7kjhq/image/upload/v1705768204/suebzw7ygvloxbhfv1v0.png"
         />
       ) : (
-        <img src={generic} alt="profile-pic" />
+        <img src={generic} alt="generic" />
       )}
 
       {}

@@ -79,17 +79,14 @@ function ManageProfile() {
   const handleUploadImage = async (newImageUrl) => {
     setProfileImageUrl(newImageUrl);
 
-    const updatedProfile = {
-      ...formData,
+    const updatedUser = {
+      ...user,
       profilecUrl: newImageUrl,
     };
 
     try {
-      const response = await axios.put(
-        `/api/users/${user._id}`,
-        updatedProfile
-      );
-      setUser({ ...user, ...updatedProfile });
+      const response = await axios.put(`/api/users/${user._id}`, updatedUser);
+      setUser(updatedUser);
 
       console.log("Profile is updated successfully:", response.data);
     } catch (error) {
@@ -240,12 +237,12 @@ function ManageProfile() {
                     Want to manage your password, too?
                     <div className="test-container">
                       <Link to="/reset-password">
-                      <button
-                        type="button"
-                        className="font-medium text-indigo-600 hover:text-indigo-500 text-center"
-                      >
-                        Click here
-                      </button>
+                        <button
+                          type="button"
+                          className="font-medium text-indigo-600 hover:text-indigo-500 text-center"
+                        >
+                          Click here
+                        </button>
                       </Link>
                     </div>
                   </div>

@@ -10,7 +10,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5005/auth/forgotPassword",
+        "http://localhost:5005/auth/forgot-password",
         {
           method: "POST",
           headers: {
