@@ -3,10 +3,13 @@ import axios from "axios";
 import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import { countries } from "countries-list";
+import ProfilePicUploader from "../ProfilePicUploader";
+import UserAvatar from "./UserAvatar";
 
 function ManageProfile() {
   const { user, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
+  const [profileImageUrl, setProfileImageUrl] = useState("");
   const navigate = useNavigate();
 
   const handleCancel = () => {
@@ -29,18 +32,24 @@ function ManageProfile() {
         if (user && user._id) {
           const response = await axios.get(`/api/users/${user._id}`);
           setFormData(response.data);
-          setLoading(false);
+          setProfileImageUrl(response.data.profilepic || "");
         }
       } catch (error) {
         console.error("Error fetching profile data:", error);
         setLoading(false);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchProfileData();
+    if (user) {
+      fetchProfileData();
+    } else {
+      setLoading(false);
+    }
   }, [user]);
 
-  if (loading) {
+  if (loading || !user) {
     return <p>Loading...</p>;
   }
 
@@ -67,8 +76,33 @@ function ManageProfile() {
     }
   };
 
+  const handleUploadImage = async (newImageUrl) => {
+    setProfileImageUrl(newImageUrl);
+
+    const updatedProfile = {
+      ...formData,
+      profilecUrl: newImageUrl,
+    };
+
+    try {
+      const response = await axios.put(
+        `/api/users/${user._id}`,
+        updatedProfile
+      );
+      setUser({ ...user, ...updatedProfile });
+
+      console.log("Profile is updated successfully:", response.data);
+    } catch (error) {
+      console.error("Error updating profile:", error);
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center">
+      {!loading && user && (
+        <UserAvatar profileImageUrl={profileImageUrl} isOnline={true} />
+      )}
+      <ProfilePicUploader onImageUpload={handleUploadImage} />
       <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg manage-bg">
         <div className="mt-16 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">

@@ -2,6 +2,7 @@ import profilePic from "../../assets/samprofPic.jpg";
 import PropTypes from "prop-types";
 
 function UserAvatar({
+  profileImageUrl,
   isOnline,
   size = "w-14 h-14",
   indicatorPosition = "top-10 start-11",
@@ -13,7 +14,7 @@ function UserAvatar({
     <div className="relative inline-block">
       <div className={`rounded-full ${size} overflow-hidden`}>
         <img
-          src={profilePic}
+          src={profileImageUrl || profilePic}
           alt="Profile"
           className="w-full h-full object-cover"
         />
@@ -31,6 +32,7 @@ UserAvatar.propTypes = {
   size: PropTypes.string,
   indicatorPosition: PropTypes.string,
   indicatorSize: PropTypes.string,
+  profileImageUrl: PropTypes.string,
 };
 
 export default UserAvatar;
