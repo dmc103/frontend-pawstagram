@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "../../contexts/UserContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { countries } from "countries-list";
 import ProfilePicUploader from "../ProfilePicUploader";
 import UserAvatar from "./UserAvatar";
@@ -239,13 +239,14 @@ function ManageProfile() {
                   <div className="px-2 mt-6 bg-white text-gray-500">
                     Want to manage your password, too?
                     <div className="test-container">
-                      {/* todo: add link to change password page */}
+                      <Link to="/reset-password">
                       <button
                         type="button"
                         className="font-medium text-indigo-600 hover:text-indigo-500 text-center"
                       >
                         Click here
                       </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
