@@ -58,7 +58,7 @@ const ForgotPassword = () => {
           {message && <p className="text-center mt-4">{message}</p>}
         </form>
         <div className="text underline text-end">
-<a href="/login">Back</a>
+<a href="/login">Back to Login</a>
 </div>
       </div>
     </div>
