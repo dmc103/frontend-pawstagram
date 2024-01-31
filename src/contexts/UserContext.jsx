@@ -1,7 +1,6 @@
-import { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
-
+import { createContext, useState, useEffect } from "react";
+import axios from "axios";
+import PropTypes from "prop-types";
 
 // create a context
 export const UserContext = createContext();
@@ -10,29 +9,27 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  console.log("user", user)
-
+  console.log("UserContext: ", user);
 
   useEffect(() => {
-
     // function to fetch user data from the API
     // getCurrentUserId() is a helper function defined below
-    const currentUserId = getCurrentUserId()
-    
-    if(currentUserId) {
-    const fetchUser = async () => {
+    const currentUserId = getCurrentUserId();
+
+    if (currentUserId) {
+      const fetchUser = async () => {
         try {
-            const response = await axios.get(`http://localhost:5005/user/${currentUserId}`);
-            setUser(response.data);
+          const response = await axios.get(
+            `http://localhost:5005/user/${currentUserId}`
+          );
+          setUser(response.data);
         } catch (error) {
-            console.error("Error fetching user data:", error);
+          console.error("Error fetching user data:", error);
         }
-    };
+      };
 
-    fetchUser();
-
-    } 
-
+      fetchUser();
+    }
   }, []);
 
   return (
@@ -42,16 +39,12 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-
-
-
 // a helper function to get the current user id from local storage
 // this is used to fetch the user data from the API
 function getCurrentUserId() {
-  return localStorage.getItem('userId');
+  return localStorage.getItem("userId");
 }
 
 UserProvider.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-  
+  children: PropTypes.node.isRequired,
+};

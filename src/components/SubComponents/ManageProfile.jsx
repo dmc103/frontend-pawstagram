@@ -9,16 +9,16 @@ import UserAvatar from "./UserAvatar";
 function ManageProfile() {
   const { user, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
-  const [profileImageUrl, setProfileImageUrl] = useState("");
   const navigate = useNavigate();
 
   const handleCancel = () => {
     navigate(`/profile/${user.userName}`);
   };
+
   const [formData, setFormData] = useState({
-    username: "",
-    firstname: "",
-    lastname: "",
+    userName: "",
+    firstName: "",
+    lastName: "",
     email: "",
     bio: "",
     country: "",
@@ -27,31 +27,18 @@ function ManageProfile() {
   const countryNames = Object.values(countries).map((country) => country.name);
 
   useEffect(() => {
-    const fetchProfileData = async () => {
-      try {
-        if (user && user._id) {
-          const response = await axios.get(`/api/users/${user._id}`);
-          setFormData(response.data);
-          setProfileImageUrl(response.data.profilepic || "");
-        }
-      } catch (error) {
-        console.error("Error fetching profile data:", error);
-        setLoading(false);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     if (user) {
-      fetchProfileData();
-    } else {
-      setLoading(false);
+      setFormData({
+        userName: user.userName || "",
+        firstName: user.firstName || "",
+        lastName: user.lastName || "",
+        email: user.email || "",
+        bio: user.bio || "",
+        country: user.country || "",
+      });
     }
+    setLoading(false);
   }, [user]);
-
-  if (loading || !user) {
-    return <p>Loading...</p>;
-  }
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -63,55 +50,76 @@ function ManageProfile() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     try {
       // tp update the user's profile data on the server
-      await axios.put(`/api/users/${user._id}`, formData);
-
-      setUser({ ...user, ...formData });
-
-      //to redirect to user profile page
-      navigate("/user-profile");
+      // await axios.put(`/api/users/${user._id}`, formData);
+      const response = await axios.patch(
+        `http://localhost:5005/user/${user._id}/update`,
+        formData
+      );
+      setUser(response.data);
+      navigate("/profile");
     } catch (error) {
       console.error("Error updating profile:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   const handleUploadImage = async (newImageUrl) => {
-    setProfileImageUrl(newImageUrl);
+    // console.log("THIS IS newImageUrl", newImageUrl);
 
     const updatedUser = {
       ...user,
-      profilecUrl: newImageUrl,
+      profilepic: newImageUrl,
     };
 
     try {
-      const response = await axios.put(`/api/users/${user._id}`, updatedUser);
-      setUser(updatedUser);
+      const response = await axios.patch(
+        `http://localhost:5005/user/${user._id}/update`,
+        updatedUser
+      );
+      setUser(response.data);
 
       console.log("Profile is updated successfully:", response.data);
     } catch (error) {
       console.error("Error updating profile:", error);
+      console.log("Error updating profile:", error.response.data);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      {!loading && user && (
-        <UserAvatar profileImageUrl={profileImageUrl} isOnline={true} />
-      )}
-      <ProfilePicUploader onImageUpload={handleUploadImage} />
+    <div className="bg-pawBgFive sm: min-h-screen flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center">
+        {!loading && user && (
+          <UserAvatar
+            profileImageUrl={user.profilepic}
+            isOnline={true}
+            size="w-20 h-20"
+            indicatorPosition="top-14 start-16"
+          />
+        )}
+
+        <ProfilePicUploader onImageUpload={handleUploadImage} />
+      </div>
       <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg manage-bg">
         <div className="mt-16 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleInputChange}>
               <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
                 <input
-                  type="username"
-                  name="username"
+                  type="text"
+                  name="userName"
                   id="username"
                   className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
                   placeholder=""
-                  value=""
+                  value={formData.userName}
+                  onChange={handleInputChange}
                 />
 
                 <label
@@ -124,12 +132,13 @@ function ManageProfile() {
 
               <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
                 <input
-                  type="firstname"
-                  name="firstname"
+                  type="text"
+                  name="firstName"
                   id="firstname"
                   className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
                   placeholder=""
-                  value=""
+                  value={formData.firstName}
+                  onChange={handleInputChange}
                 />
 
                 <label
@@ -142,12 +151,13 @@ function ManageProfile() {
 
               <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
                 <input
-                  type="lastname"
-                  name="lastname"
+                  type="text"
+                  name="lastName"
                   id="lastname"
                   className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
                   placeholder=""
-                  value=""
+                  value={formData.lastName}
+                  onChange={handleInputChange}
                 />
 
                 <label
@@ -165,7 +175,8 @@ function ManageProfile() {
                   id="email"
                   className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
                   placeholder=""
-                  value=""
+                  value={formData.email}
+                  onChange={handleInputChange}
                 />
 
                 <label
@@ -176,14 +187,16 @@ function ManageProfile() {
                 </label>
               </div>
               <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
-                <input
+                <textarea
                   type="bio"
                   name="bio"
                   id="bio"
                   className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
                   placeholder=""
-                  value=""
-                />
+                  value={formData.bio}
+                  onChange={handleInputChange}
+                  rows="4"
+                ></textarea>
 
                 <label
                   htmlFor="bio"
@@ -201,7 +214,7 @@ function ManageProfile() {
                   Country
                 </label>
                 <select
-                  id="country"
+                  id="text"
                   name="country"
                   value={formData.country}
                   onChange={handleInputChange}

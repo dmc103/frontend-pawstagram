@@ -1,6 +1,5 @@
 import "ionicons";
 import pawstagram from "../../assets/logo_2.png";
-import UserAvatar from "./UserAvatar";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useContext } from "react";
 
@@ -17,8 +16,7 @@ function TopBar() {
       {/* Logo Section */}
       <div className="flex-shrink-0">
         <button className="theme-btn" onClick={toggleTheme}>
-          <img src={pawstagram} className="h-14 w-14" 
-          alt="Pawstagram logo" />
+          <img src={pawstagram} className="h-14 w-14" alt="Pawstagram logo" />
           {/* {theme === "light" ? "dark" : "light"} */}
         </button>
       </div>
@@ -30,7 +28,10 @@ function TopBar() {
             <input
               id="search"
               type="search"
-              className={"block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white dark:text-gray-500 focus:outline-none focus:ring-2 focus:ring-pawBgOne focus:border-pawBgOne text-sm color-bg " + theme}
+              className={
+                "block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white dark:text-gray-500 focus:outline-none focus:ring-2 focus:ring-pawBgOne focus:border-pawBgOne text-sm color-bg " +
+                theme
+              }
               placeholder="Search..."
             />
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -45,13 +46,6 @@ function TopBar() {
 
       {/* Avatar, Notifications, and Logout Button */}
       <div className="ml-4 flex items-center md:ml-6">
-        {/* UserAvatar */}
-        <UserAvatar
-          isOnline={true}
-          size="w-11 h-11"
-          indicatorPosition="bottom-0 right-0"
-        />
-
         {/* Notifications Button */}
         <button
           type="button"

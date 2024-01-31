@@ -34,7 +34,12 @@ function CardForSharedPost({ post }) {
     <div>
       <div className="flex px-5">
         <a href={`/profile/${user.userName}`} className="cursor-pointer">
-          <UserAvatar isOnline={true} />
+          <UserAvatar
+            profileImageUrl={user.profilepic}
+            isOnline={true}
+            size="w-20 h-20"
+            indicatorPosition="top-14 start-16"
+          />
         </a>
         <div className="grow">
           <p>

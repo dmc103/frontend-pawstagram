@@ -35,6 +35,7 @@ function Nav() {
           <div>
             <div className="w-max p-2.5">
               <UserAvatar
+                profileImageUrl={user.profilepic}
                 isOnline={true}
                 size="w-11 h-11"
                 indicatorPosition="bottom-0 right-0"

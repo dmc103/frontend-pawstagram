@@ -30,7 +30,7 @@ function App() {
             />
             <Route path="/homepage" element={<UserHome />} />
             <Route path="/profile/:userName" element={<UserProfile />} />
-            <Route path="/manageprofile" element={<ManageProfile />} />
+            <Route path="/manageProfile" element={<ManageProfile />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="*" element={<Navigate replace to="/login" />} />
           </Routes>

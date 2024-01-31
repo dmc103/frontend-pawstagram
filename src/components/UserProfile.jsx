@@ -25,6 +25,8 @@ function UserProfile() {
     );
   }
 
+  console.log("here is the user Profile", user.profilepic);
+
   return (
     <div>
       <TopBar />
@@ -42,6 +44,7 @@ function UserProfile() {
 
             <div className="absolute bottom-0 transform translate-y-1/2 w-full flex justify-center">
               <UserAvatar
+                profileImageUrl={user.profilepic}
                 isOnline={true}
                 size="w-20 h-20"
                 indicatorPosition="top-14 start-16"
@@ -56,7 +59,6 @@ function UserProfile() {
             <div className="text-m text-gray-500">{user.country}</div>
             <div className="text-m text-gray-500">{user.bio}</div>
           </div>
-
           <Tab />
         </Card>
       </div>

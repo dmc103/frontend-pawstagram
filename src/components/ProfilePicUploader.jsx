@@ -1,12 +1,11 @@
 import axios from "axios";
-import { Image } from "cloudinary-react";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
 function ProfilePicUploader({ onImageUpload }) {
   const [imageSelected, setImageSelected] = useState("");
 
-  const generic = "../assets/generic_pic.png";
+  // const generic = "../assets/generic_pic.png";
 
   const uploadImage = () => {
     // console.log(files[0]);
@@ -26,18 +25,6 @@ function ProfilePicUploader({ onImageUpload }) {
   };
   return (
     <div>
-      {<Image /> ? (
-        <Image
-          style={{ height: "80px", borderRadius: "50%" }}
-          cloudName="dl7j7kjhq"
-          publicId="https://res.cloudinary.com/dl7j7kjhq/image/upload/v1705768204/suebzw7ygvloxbhfv1v0.png"
-        />
-      ) : (
-        <img src={generic} alt="generic" />
-      )}
-
-      {}
-
       <input
         type="file"
         onChange={(e) => {
