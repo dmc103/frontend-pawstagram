@@ -4,7 +4,7 @@ import Card from "./Card";
 import PropTypes from "prop-types";
 import CardForSharedPost from "./CardForSharedPost";
 
-function SharedPostsList({ userId }) {
+function SharedPostsList({ userId, refreshTrigger }) {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function SharedPostsList({ userId }) {
     if (userId) {
       fetchPosts();
     }
-  }, [userId]);
+  }, [userId, refreshTrigger]);
 
   // check if there are no posts and render a message if so
   if (posts.length === 0) {
@@ -49,6 +49,7 @@ function SharedPostsList({ userId }) {
 //props validation
 SharedPostsList.propTypes = {
   userId: PropTypes.string.isRequired,
+  refreshTrigger: PropTypes.func.isRequired,
 };
 
 export default SharedPostsList;

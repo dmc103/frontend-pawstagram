@@ -5,8 +5,9 @@ import Card from "./Card";
 import UserAvatar from "./UserAvatar";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import "ionicons";
+import PropTypes from "prop-types";
 
-function CardForPost() {
+function CardForPost({ onPostCreated }) {
   const { user } = useContext(UserContext);
   const { theme } = useContext(ThemeContext);
   const [postDescription, setPostDescription] = useState("");
@@ -28,7 +29,7 @@ function CardForPost() {
     const formData = new FormData();
     formData.append("desc", postDescription);
     if (selectedImage) {
-      formData.append("img", selectedImage);
+      formData.append("image", selectedImage);
     }
 
     try {
@@ -47,6 +48,10 @@ function CardForPost() {
       );
       console.log(response);
       alert("Post created successfully!");
+
+      if (onPostCreated) {
+        onPostCreated();
+      }
 
       setPostDescription("");
       setSelectedImage(null);
@@ -131,5 +136,10 @@ function CardForPost() {
     </Card>
   );
 }
+
+//props validation
+CardForPost.propTypes = {
+  onPostCreated: PropTypes.func.isRequired,
+};
 
 export default CardForPost;

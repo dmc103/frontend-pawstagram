@@ -150,6 +150,12 @@ h1 {
   width: 100%;
 }
 
+.post-image {
+  max-width: 100%; 
+  height: auto; 
+  max-height: 200px; 
+}
+
 
 .floating-label-container input + label {
   font-size: 0.875rem;

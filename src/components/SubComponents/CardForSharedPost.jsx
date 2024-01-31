@@ -57,7 +57,7 @@ function CardForSharedPost({ post }) {
         {/* post and image rendering */}
         {post.img && (
           <div className="rounded-md overflow-hidden">
-            <img src={post.img} alt="shared content" />
+            <img src={post.img} alt="Post" className="post-image" />
           </div>
         )}
 

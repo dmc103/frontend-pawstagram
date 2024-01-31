@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import Nav from "./SubComponents/Nav";
@@ -12,6 +12,8 @@ function UserHome() {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const { theme } = useContext(ThemeContext);
+  const [refreshTrigger, setRefreshTrigger] = useState(false);
+  const toggleRefresh = () => setRefreshTrigger(!refreshTrigger);
 
   const catSpinner =
     "https://media4.giphy.com/media/wnYB3vx9t6PXiq1ubB/giphy.gif?cid=ecf05e47adpu5m1dewuaidkpywvo7tzpou00hmrzxlduqhw9&ep=v1_gifs_search&rid=giphy.gif&ct=g";
@@ -42,9 +44,14 @@ function UserHome() {
           </div>
 
           <div className="flex flex-col mx-24 mt-4">
-            <CardForPost />
+            <CardForPost onPostCreated={toggleRefresh} />
 
-            {user && <SharedPostsList userId={user._id} />}
+            {user && (
+              <SharedPostsList
+                userId={user._id}
+                refreshTrigger={toggleRefresh}
+              />
+            )}
           </div>
         </div>
       </div>
