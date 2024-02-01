@@ -1,9 +1,8 @@
 import "ionicons";
 import UserAvatar from "./UserAvatar";
-import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import { useState } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 function Nav() {
@@ -14,8 +13,15 @@ function Nav() {
     "flex gap-3 py-2 my-2 hover:bg-pawBgOne -mx-10 px-10 md:px-7 rounded-md transition-all hover:scale-95 hover:shadow-md small: scale-95";
 
   const { theme } = useContext(ThemeContext);
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+    navigate("/login");
+  };
 
   return (
     <div className={"min-h-screen " + theme}>
@@ -127,6 +133,7 @@ function Nav() {
                   <ion-icon name="log-out"></ion-icon>
                   <span
                     className="transition-opacity duration-300"
+                    onClick={handleLogout}
                     style={{ opacity: isHovered ? 1 : 0 }}
                   >
                     Log out

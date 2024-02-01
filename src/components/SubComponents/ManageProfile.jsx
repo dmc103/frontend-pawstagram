@@ -93,6 +93,44 @@ function ManageProfile() {
     }
   };
 
+  const handleDelete = async () => {
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete your account? This action cannot be undone."
+    );
+    if (!isConfirmed) {
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const authToken = localStorage.getItem("authToken");
+
+      if (!authToken) {
+        alert("You are not authorized to delete this account.");
+        navigate("/login");
+        return;
+      }
+      await axios.delete(`http://localhost:5005/user/${user._id}/delete`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+
+      alert("Your account has been successfully deleted.");
+      localStorage.clear();
+      setUser(null);
+      navigate("/login");
+    } catch (error) {
+      console.error("Error deleting account:", error);
+      alert(
+        "An error occurred while trying to delete your account. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-pawBgFive sm: min-h-screen flex flex-col items-center justify-center">
       <div className="flex flex-col items-center">
@@ -186,12 +224,12 @@ function ManageProfile() {
                   Email
                 </label>
               </div>
-              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
+              <div className="relative floating-label-container">
                 <textarea
                   type="bio"
                   name="bio"
                   id="bio"
-                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
+                  className="w-full p-3 mt-1 border border-gray-300 bg-amber-50 rounded-md"
                   placeholder=""
                   value={formData.bio}
                   onChange={handleInputChange}
@@ -200,7 +238,7 @@ function ManageProfile() {
 
                 <label
                   htmlFor="bio"
-                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
+                  className="absolute left-1 top-1 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
                 >
                   Bio
                 </label>
@@ -237,6 +275,17 @@ function ManageProfile() {
                   Save Changes
                 </button>
               </div>
+
+              <div>
+                <button
+                  type="submit"
+                  onClick={handleDelete}
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-900"
+                >
+                  Delete Account
+                </button>
+              </div>
+
               <div>
                 <button
                   type="submit"
@@ -245,6 +294,7 @@ function ManageProfile() {
                 >
                   Cancel
                 </button>
+
                 <div className="relative flex justify-center text-sm">
                   <div className="px-2 mt-6 bg-white text-gray-500">
                     Want to manage your password, too?
