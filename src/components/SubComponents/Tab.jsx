@@ -10,6 +10,7 @@ const Tab = () => {
   const [activeTab, setActiveTab] = useState("Posts");
   const { theme } = useContext(ThemeContext);
   const { user } = useContext(UserContext);
+
   const Menus = [
     { name: "Posts", icon: "document-outline", dis: "translate-x-0" },
     { name: "PawFriends", icon: "people-outline", dis: "translate-x-16" },
@@ -27,11 +28,21 @@ const Tab = () => {
   const renderTabContent = () => {
     switch (activeTab) {
       case "Posts":
-        return user && <SharedPostsList userId={user._id} />;
+        return (
+          user && <SharedPostsList userId={user._id} refreshTrigger={false} />
+        );
       case "PawFriends":
-        return <FriendsList />;
+        return <FriendsList currentUser={user} />;
+
       default:
-        return user && <SharedPostsList userId={user._id} />;
+        return (
+          user && (
+            <SharedPostsList
+              userId={user._id}
+              refreshTrigger={refreshTrigger}
+            />
+          )
+        );
     }
   };
 

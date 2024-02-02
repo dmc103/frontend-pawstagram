@@ -25,8 +25,6 @@ function UserProfile() {
     );
   }
 
-  console.log("here is the user Profile", user.profilepic);
-
   return (
     <div>
       <TopBar />

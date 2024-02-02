@@ -49,7 +49,7 @@ function SharedPostsList({ userId, refreshTrigger }) {
 //props validation
 SharedPostsList.propTypes = {
   userId: PropTypes.string.isRequired,
-  refreshTrigger: PropTypes.func.isRequired,
+  refreshTrigger: PropTypes.bool.isRequired,
 };
 
 export default SharedPostsList;
