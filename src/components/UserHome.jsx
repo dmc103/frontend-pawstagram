@@ -7,6 +7,7 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import TopBar from "./SubComponents/TopBar";
 import "../index.css";
 import SharedPostsList from "./SubComponents/SharedPostsList";
+import User from "./SubComponents/User";
 
 function UserHome() {
   const { user } = useContext(UserContext);
@@ -53,6 +54,7 @@ function UserHome() {
               />
             )}
           </div>
+          <User currentUser={user} />
         </div>
       </div>
     </div>

@@ -31,83 +31,85 @@ function CardForSharedPost({ post }) {
   console.log("this is the post", post);
 
   return (
-    <div>
-      <div className="flex px-5">
-        <a href={`/profile/${user.userName}`} className="cursor-pointer">
-          <UserAvatar
-            profileImageUrl={user.profilepic}
-            isOnline={true}
-            size="w-20 h-20"
-            indicatorPosition="top-14 start-16"
-          />
-        </a>
-        <div className="grow">
-          <p>
-            <a
-              href={`/profile/${user.userName}`}
-              className="font-semibold px-2 cursor-pointer hover:underline"
-            >
-              {user.userName}
-            </a>
-            shared a post
-          </p>
-
-          <p className="text-sm text-gray-500 px-2">{timeAgo}</p>
-        </div>
-      </div>
-
+    <Card>
       <div>
-        <p className="my-2 text-XL text-gray-500">{post.desc}</p>
+        <div className="flex px-5">
+          <a href={`/profile/${user.userName}`} className="cursor-pointer">
+            <UserAvatar
+              profileImageUrl={user.profilepic}
+              isOnline={true}
+              size="w-20 h-20"
+              indicatorPosition="top-14 start-16"
+            />
+          </a>
+          <div className="grow">
+            <p>
+              <a
+                href={`/profile/${user.userName}`}
+                className="font-semibold px-2 cursor-pointer hover:underline"
+              >
+                {user.userName}
+              </a>
+              shared a post
+            </p>
 
-        {/* post and image rendering */}
-        {post.img && (
-          <div className="rounded-md overflow-hidden">
-            <img src={post.img} alt="Post" className="post-image" />
-          </div>
-        )}
-
-        <div className=" flex mt-4 mb-5">
-          {/* like button */}
-          <div>
-            <button className="flex gap-2 items-center">
-              <ion-icon name="thumbs-up-outline">29</ion-icon>
-            </button>
-          </div>
-
-          {/* comment button */}
-          <div>
-            <button
-              onClick={toggleComments}
-              className="flex gap-2 px-4 items-center"
-            >
-              <ion-icon name="chatbubble-outline">4</ion-icon>
-            </button>
-          </div>
-
-          {/* share button */}
-          <div>
-            <button className="flex gap-2 px-2 items-center">
-              <ion-icon name="share-social-outline">5</ion-icon>
-            </button>
+            <p className="text-sm text-gray-500 px-2">{timeAgo}</p>
           </div>
         </div>
 
-        {/* comment space */}
-        {showComments && (
-          <div className="flex mt-4 gap-3">
-            <div>
-              <UserAvatar isOnline={true} />
-            </div>
-            <textarea
-              className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2"
-              placeholder="Leave a comment"
-            ></textarea>
-          </div>
-        )}
-      </div>
+        <div>
+          <p className="my-2 text-XL text-gray-500">{post.desc}</p>
 
-      <Card />
-    </div>
+          {/* post and image rendering */}
+          {post.img && (
+            <div className="rounded-md overflow-hidden">
+              <img src={post.img} alt="Post" className="post-image" />
+            </div>
+          )}
+
+          <div className=" flex mt-4 mb-5">
+            {/* like button */}
+            <div>
+              <button className="flex gap-2 items-center">
+                <ion-icon name="thumbs-up-outline">29</ion-icon>
+              </button>
+            </div>
+
+            {/* comment button */}
+            <div>
+              <button
+                onClick={toggleComments}
+                className="flex gap-2 px-4 items-center"
+              >
+                <ion-icon name="chatbubble-outline">4</ion-icon>
+              </button>
+            </div>
+
+            {/* share button */}
+            <div>
+              <button className="flex gap-2 px-2 items-center">
+                <ion-icon name="share-social-outline">5</ion-icon>
+              </button>
+            </div>
+          </div>
+
+          {/* comment space */}
+          {showComments && (
+            <div className="flex mt-4 gap-3">
+              <div>
+                <UserAvatar isOnline={true} />
+              </div>
+              <textarea
+                className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2"
+                placeholder="Leave a comment"
+              ></textarea>
+            </div>
+          )}
+        </div>
+
+        <Card />
+      </div>
+    </Card>
   );
 }
 
