@@ -26,7 +26,7 @@ function UserProfile() {
   }
 
   return (
-    <div>
+    <div className={"color-bg " + theme}>
       <TopBar />
 
       <div className={"flex mt-4 max-w-4xl mx-auto gap-6 color-bg " + theme}>

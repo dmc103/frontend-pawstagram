@@ -18,8 +18,7 @@ function UserHome() {
 
   console.log("User state:", user);
 
-  const catSpinner =
-    "https://media4.giphy.com/media/wnYB3vx9t6PXiq1ubB/giphy.gif?cid=ecf05e47adpu5m1dewuaidkpywvo7tzpou00hmrzxlduqhw9&ep=v1_gifs_search&rid=giphy.gif&ct=g";
+  const spinner = "https://i.gifer.com/Xqg8.gif";
 
   useEffect(() => {
     if (!user) {
@@ -28,8 +27,12 @@ function UserHome() {
   }, [user, navigate]);
 
   if (!user) {
-    // TODO: Add a loading spinner
-    return <img src={catSpinner} alt="cat-spinner" />;
+    return (
+      <div className="h-screen flex flex-col items-center justify-center">
+        <img src={spinner} alt="spinner" />
+        <p style={{ fontSize: "20px" }}>Loading ...</p>
+      </div>
+    );
   }
 
   console.log(

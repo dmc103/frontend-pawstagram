@@ -67,8 +67,15 @@ function ManageProfile() {
     }
   };
 
+  const spinner = "https://i.gifer.com/Xqg8.gif";
+
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="h-screen flex flex-col items-center justify-center">
+        <img src={spinner} alt="spinner" />
+        <p style={{ fontSize: "20px" }}>Loading ...</p>
+      </div>
+    );
   }
 
   const handleUploadImage = async (newImageUrl) => {
