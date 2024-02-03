@@ -7,11 +7,12 @@ function UserAvatar({
   size = "w-14 h-14",
   indicatorPosition = "top-10 start-11",
   indicatorSize = "w-3.5 h-3.5",
+  className,
 }) {
   const indicatorColor = isOnline ? "bg-green-500" : "bg-gray-500";
 
   return (
-    <div className="relative inline-block">
+    <div className={`relative inline-block ${className}`}>
       <div className={`rounded-full ${size} overflow-hidden`}>
         <img
           src={profileImageUrl || profilePic}
@@ -33,6 +34,7 @@ UserAvatar.propTypes = {
   indicatorPosition: PropTypes.string,
   indicatorSize: PropTypes.string,
   profileImageUrl: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default UserAvatar;

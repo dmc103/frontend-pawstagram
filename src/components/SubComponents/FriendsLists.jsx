@@ -32,13 +32,15 @@ function FriendsLists({ currentUser }) {
   return (
     <div>
       <h2>Friends List</h2>
-      <ul>
-        {friends.map((friend) => (
-          <li key={friend._id}>
-            {friend.userName} - {friend.bio}
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul>
+          {friends.map((friend) => (
+            <li key={friend._id}>
+              {friend.userName} - {friend.bio}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

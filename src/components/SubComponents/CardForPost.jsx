@@ -64,7 +64,12 @@ function CardForPost({ onPostCreated }) {
   return (
     <Card>
       <div className="flex gap-2">
-        <UserAvatar isOnline={true} />
+        <UserAvatar
+          profileImageUrl={user.profilepic}
+          isOnline={true}
+          size="w-20 h-20"
+          indicatorPosition="top-14 start-16"
+        />
 
         <textarea
           className={
