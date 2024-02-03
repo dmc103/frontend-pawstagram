@@ -13,11 +13,8 @@
     "axios": "^1.6.5",
     "cloudinary-react": "^1.8.1",
     "countries-list": "^3.0.6",
-    "date-fns": "^3.3.1",
-    "dotenv": "^16.4.1",
-=======
-    "express-jwt": "^8.4.1",
-    "framer-motion": "^11.0.3",
+  "date-fns": "^3.3.1",  
+ "framer-motion": "^11.0.3",
     "ionicons": "^7.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
