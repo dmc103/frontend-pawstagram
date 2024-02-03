@@ -37,19 +37,7 @@ function Nav() {
           backgroundColor: isHovered ? "white" : undefined,
         }}
       >
-<<<<<<< HEAD
         <div className={"flex h-screen flex-col justify-between pt-2 pb-4 color-bg " + theme}>
-          <div>
-            <div className="w-max p-2.5">
-              <UserAvatar
-                profileImageUrl={user.profilepic}
-                isOnline={true}
-                size="w-11 h-11"
-                indicatorPosition="bottom-0 right-0"
-              />
-            </div>
-=======
-        <div className="flex h-screen flex-col justify-between pt-2 pb-4">
           <div>
             <a href={`/profile/${user.userName}`} className="cursor-pointer">
               <div className="w-max p-2.5">
@@ -61,7 +49,6 @@ function Nav() {
                 />
               </div>
             </a>
->>>>>>> 08b4c8faf258992f431cd81edcea5d1860f64242
             <ul className="px-6 font-medium tracking-wide">
               {/* Updates */}
               <li className="min-w-max group">
