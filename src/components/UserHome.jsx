@@ -46,12 +46,12 @@ function UserHome() {
       <TopBar />
       <div
         className={
-          " w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-auto no-border dark-bg " +
+          " w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-auto no-border color-bg " +
           theme
         }
       >
-        <div className={"flex " + theme}>
-          <div className={"mt-4 max-w-4xl color-bg " + theme}>
+        <div className="flex">
+          <div className="mt-4 max-w-4xl">
             <Nav />
           </div>
 

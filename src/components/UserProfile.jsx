@@ -30,7 +30,7 @@ function UserProfile() {
       <TopBar />
 
       <div className={"flex mt-4 max-w-4xl mx-auto gap-6 dark-bg " + theme}>
-        <div className={theme}>
+        <div>
           <Nav />
         </div>
 

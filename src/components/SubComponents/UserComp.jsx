@@ -16,7 +16,7 @@ function UserComp({ user, currentUser, onAddFriend }) {
     <Card>
       <div
         className={
-          "group before:hover:scale-95  before:hover:w-80 before:hover:h-full before:hover:rounded-b-xl before:transition-all before:duration-500 before:content-[''] before:w-80 before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-sky-200 via-orange-200 to-pink-300 before:absolute before:top-0 w-50 h-42 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden mb-5 top-bar " +
+          "group before:hover:scale-95  before:hover:w-80 before:hover:h-full before:hover:rounded-b-xl before:transition-all before:duration-500 before:content-[''] before:w-80 before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-sky-200 via-orange-200 to-pink-300 before:absolute before:top-0 w-50 h-42 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden mb-5 color-bg " +
           theme
         }
       >
@@ -41,10 +41,8 @@ function UserComp({ user, currentUser, onAddFriend }) {
 
         <span className="text-sm font-semibold">{user.userName}</span>
         <div
-          className={
-            "z-10  group-hover:-translate-y-10 transition-all duration-500 " +
-            theme
-          }
+          className=
+            "z-10  group-hover:-translate-y-10 transition-all duration-500"
         >
           <p className="text-sm text-gray-500 w-60">{user.bio}</p>
         </div>
@@ -52,7 +50,7 @@ function UserComp({ user, currentUser, onAddFriend }) {
         {!isFriend && (
           <button
             className={
-              "bg-indigo-600 hover:bg-indigo-900 px-4 py-1 text-slate-50 rounded-md z-10  transition-all duration-500 button2 " +
+              "bg-indigo-600 hover:bg-indigo-900 px-4 py-1 text-slate-50 rounded-md z-10  transition-all duration-500 button " +
               theme
             }
             onClick={() => onAddFriend(user._id)}
