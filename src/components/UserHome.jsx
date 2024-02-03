@@ -8,6 +8,7 @@ import TopBar from "./SubComponents/TopBar";
 import "../index.css";
 import SharedPostsList from "./SubComponents/SharedPostsList";
 import User from "./SubComponents/User";
+import Card from "./SubComponents/Card";
 
 function UserHome() {
   const { user } = useContext(UserContext);
@@ -42,7 +43,7 @@ function UserHome() {
       <TopBar />
       <div
         className={
-          " w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-auto no-border color-bg " +
+          " w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-auto no-border" +
           theme
         }
       >
@@ -61,7 +62,14 @@ function UserHome() {
               />
             )}
           </div>
-          <User currentUser={user} />
+
+          <div className="block font-sans text-base antialiased font-medium leading-relaxed text-gray-500 bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
+            <h4>
+              <Card className="mt-5">People you may know</Card>
+            </h4>
+
+            <User currentUser={user} />
+          </div>
         </div>
       </div>
     </div>

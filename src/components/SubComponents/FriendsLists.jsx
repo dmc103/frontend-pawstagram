@@ -31,12 +31,18 @@ function FriendsLists({ currentUser }) {
 
   return (
     <div>
-      <h2>Friends List</h2>
+      <h2 className="font-bold mb-4">Friends List</h2>
       <div>
         <ul>
           {friends.map((friend) => (
-            <li key={friend._id}>
-              {friend.userName} - {friend.bio}
+            <li
+              key={friend._id}
+              className="w-72 bg-white rounded-b-lg border-t-8 border-pawBgFour px-4 py-5 flex flex-col justify-around shadow-md"
+            >
+              <div className="text-sm font-bold font-sans">
+                {friend.userName}
+              </div>
+              <div className="text-gray-400 text-sm">{friend.bio}</div>
             </li>
           ))}
         </ul>
