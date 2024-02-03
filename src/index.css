@@ -57,6 +57,10 @@ h1 {
   background-color: #646471;
 } 
 
+.dark.button2 {
+  background-color: #45454a;
+} 
+
 .color-bg.dark  {
   background-color: #424247;
   border-color: #646471;

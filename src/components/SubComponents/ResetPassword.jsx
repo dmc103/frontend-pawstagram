@@ -1,15 +1,37 @@
+import axios from "axios";
 import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ResetPassword = () => {
   const [message, setMessage] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const { id, token } = useParams();
+  const navigate = useNavigate();
+
+  const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}/;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (newPassword !== confirmPassword) {
-        setMessage('Passwords should match.')
-    }
+    // try {
+    //     if (newPassword !== confirmPassword) {
+    //         setMessage(`Passwords don't match.`)
+    //     } 
+    //     else if (!passwordRegex.test(newPassword)) {
+    //         setMessage("Password must have at least 3 characters and contain at least one uppercase letter, one lowercase letter, and one number.")
+    //     }
+    //     else {
+    //         const response = await axios.post(`http://localhost:5005/auth/reset-password/${id}/${token}`, newPassword);
+    //         console.log(response.data);
+    //         setMessage('Password successfully changed. Redirecting to ')
+    //         setTimeout(() => {
+    //             navigate("/manageprofile")
+    //         }, 3000);
+    //     }
+    // } catch (err) {
+    //     console.log(err)
+    // }
+    
   };
 
   return (
