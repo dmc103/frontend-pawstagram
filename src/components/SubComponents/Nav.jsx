@@ -24,7 +24,7 @@ function Nav() {
   };
 
   return (
-    <div className={"min-h-screen " + theme}>
+    <div className={"min-h-screen color-bg " + theme}>
       <div
         className={
           "sidebar left-0 top-0 z-10 min-h-screen w-[4.5rem] overflow-hidden border-r hover:w-56 hover:bg-white hover:shadow-lg color-bg " +
@@ -37,8 +37,8 @@ function Nav() {
           backgroundColor: isHovered ? "white" : undefined,
         }}
       >
-        <div className={"flex h-screen flex-col justify-between pt-2 pb-4 " + theme}>
-          <div className={theme}>
+        <div className={"flex h-screen flex-col justify-between pt-2 pb-4 color-bg " + theme}>
+          <div>
             <div className="w-max p-2.5">
               <UserAvatar
                 profileImageUrl={user.profilepic}
