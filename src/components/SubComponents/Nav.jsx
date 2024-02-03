@@ -37,8 +37,8 @@ function Nav() {
           backgroundColor: isHovered ? "white" : undefined,
         }}
       >
-        <div className="flex h-screen flex-col justify-between pt-2 pb-4">
-          <div>
+        <div className={"flex h-screen flex-col justify-between pt-2 pb-4 " + theme}>
+          <div className={theme}>
             <div className="w-max p-2.5">
               <UserAvatar
                 profileImageUrl={user.profilepic}
@@ -58,7 +58,7 @@ function Nav() {
                       : nonActiveElement
                   }
                 >
-                  <ion-icon name="home-outline" className="text-2xl"></ion-icon>
+                  <ion-icon name="home-outline" className={"text-2xl " + theme}></ion-icon>
                   <span
                     className="transition-opacity duration-300"
                     style={{ opacity: isHovered ? 1 : 0 }}
