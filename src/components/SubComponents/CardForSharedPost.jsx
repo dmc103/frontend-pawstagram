@@ -8,6 +8,7 @@ import { formatDistanceToNow } from "date-fns";
 
 function CardForSharedPost({ post }) {
   const { user } = useContext(UserContext);
+
   const timeAgo = formatDistanceToNow(new Date(post.createdAt), {
     addSuffix: true,
   });

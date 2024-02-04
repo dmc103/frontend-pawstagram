@@ -8,6 +8,7 @@ import { UserContext } from "../../contexts/UserContext";
 
 const Tab = () => {
   const [activeTab, setActiveTab] = useState("Posts");
+  const [refreshTrigger] = useState(false);
   const { theme } = useContext(ThemeContext);
   const { user } = useContext(UserContext);
 

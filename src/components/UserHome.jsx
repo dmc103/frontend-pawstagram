@@ -6,9 +6,9 @@ import CardForPost from "./SubComponents/CardForPost";
 import { ThemeContext } from "../contexts/ThemeContext";
 import TopBar from "./SubComponents/TopBar";
 import "../index.css";
-import SharedPostsList from "./SubComponents/SharedPostsList";
 import User from "./SubComponents/User";
 import Card from "./SubComponents/Card";
+import AllPostsList from "./SubComponents/AllPostsList";
 
 function UserHome() {
   const { user } = useContext(UserContext);
@@ -58,12 +58,7 @@ function UserHome() {
           <div className="flex flex-col mx-24 mt-4">
             <CardForPost onPostCreated={toggleRefresh} />
 
-            {user && (
-              <SharedPostsList
-                userId={user._id}
-                refreshTrigger={refreshTrigger}
-              />
-            )}
+            <AllPostsList refreshTrigger={refreshTrigger} />
           </div>
 
           <div className="block font-sans text-base antialiased font-medium leading-relaxed text-gray-500 bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
