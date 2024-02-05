@@ -36,10 +36,10 @@ function UserHome() {
     );
   }
 
-  console.log(
-    "refreshTrigger value right before SharedPostsList:",
-    refreshTrigger
-  );
+  // console.log(
+  //   "refreshTrigger value right before SharedPostsList:",
+  //   refreshTrigger
+  // );
 
   return (
     <div>

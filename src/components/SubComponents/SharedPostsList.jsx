@@ -7,6 +7,8 @@ import CardForSharedPost from "./CardForSharedPost";
 function SharedPostsList({ userId, refreshTrigger }) {
   const [posts, setPosts] = useState([]);
 
+  console.log(" Here are the user's posts:", posts);
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -36,7 +38,7 @@ function SharedPostsList({ userId, refreshTrigger }) {
     );
   }
 
-  // to render the list of posts
+  // to render the list of user's posts
   return (
     <div className="post-container">
       {posts.map((post) => (

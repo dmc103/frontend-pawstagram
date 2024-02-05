@@ -64,7 +64,7 @@ function CardForSharedPost({ post }) {
           {/* post and image rendering */}
           {post.img && (
             <div className="rounded-md overflow-hidden">
-              <img src={post.img} alt="Post" className="post-image" />
+              <img src={post.img} alt="Post" className="post-image w-1/2" />
             </div>
           )}
 
@@ -98,7 +98,12 @@ function CardForSharedPost({ post }) {
           {showComments && (
             <div className="flex mt-4 gap-3">
               <div>
-                <UserAvatar isOnline={true} />
+                <UserAvatar
+                  profileImageUrl={user.profilepic}
+                  isOnline={true}
+                  size="w-11 h-11"
+                  indicatorPosition="bottom-0 right-0"
+                />
               </div>
               <textarea
                 className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2"
