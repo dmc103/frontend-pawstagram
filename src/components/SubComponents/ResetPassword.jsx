@@ -13,13 +13,13 @@ const ResetPassword = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // try {
-    //     if (newPassword !== confirmPassword) {
-    //         setMessage(`Passwords don't match.`)
-    //     } 
-    //     else if (!passwordRegex.test(newPassword)) {
-    //         setMessage("Password must have at least 3 characters and contain at least one uppercase letter, one lowercase letter, and one number.")
-    //     }
+    try {
+        if (newPassword !== confirmPassword) {
+            setMessage(`Passwords don't match.`)
+        } 
+        else if (!passwordRegex.test(newPassword)) {
+            setMessage("Password must have at least 3 characters and contain at least one uppercase letter, one lowercase letter, and one number.")
+        }
     //     else {
     //         const response = await axios.post(`http://localhost:5005/auth/reset-password/${id}/${token}`, newPassword);
     //         console.log(response.data);
@@ -28,10 +28,13 @@ const ResetPassword = () => {
     //             navigate("/manageprofile")
     //         }, 3000);
     //     }
-    // } catch (err) {
-    //     console.log(err)
-    // }
+    } catch (err) {
+        console.log(err)
+    }
     
+    const handleShowPassword = async () => {
+        console.log("ok")
+    }
   };
 
   return (
@@ -71,7 +74,9 @@ const ResetPassword = () => {
             />
             <p className="text-red-600 text-center font-normal">{message}</p>
             
-            <br />
+            {/* <label>Show Password</label>
+            <input type="checkbox" onClick={handleShowPassword} />
+            <br /> */}
 
           <button
           type="submit"
