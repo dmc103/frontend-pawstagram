@@ -82,8 +82,8 @@ function Nav() {
           backgroundColor: isHovered ? "white" : undefined,
         }}
       >
-        <div className="flex h-screen flex-col justify-between pt-2 pb-4">
-          <div>
+        <div className={"flex h-screen flex-col justify-between pt-2 pb-4 color-bg " + theme}>
+          <div className={"color-bg " + theme}>
             <a href={`/profile/${user.userName}`} className="cursor-pointer">
               <div className="w-max p-2.5">
                 <UserAvatar

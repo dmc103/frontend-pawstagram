@@ -20,14 +20,14 @@ const ResetPassword = () => {
         else if (!passwordRegex.test(newPassword)) {
             setMessage("Password must have at least 3 characters and contain at least one uppercase letter, one lowercase letter, and one number.")
         }
-    //     else {
-    //         const response = await axios.post(`http://localhost:5005/auth/reset-password/${id}/${token}`, newPassword);
-    //         console.log(response.data);
-    //         setMessage('Password successfully changed. Redirecting to ')
-    //         setTimeout(() => {
-    //             navigate("/manageprofile")
-    //         }, 3000);
-    //     }
+      //   else {
+      //      const response = await axios.post(`http://localhost:5005/auth/reset-password/${id}/${token}`, newPassword);
+      //      console.log(response.data);
+      //      setMessage('Password successfully changed. Redirecting to ')
+      //      setTimeout(() => {
+      //          navigate("/manageprofile")
+      //      }, 3000);
+      //  }
     } catch (err) {
         console.log(err)
     }
