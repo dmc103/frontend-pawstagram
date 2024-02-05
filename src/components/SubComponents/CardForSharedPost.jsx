@@ -95,7 +95,7 @@ function CardForSharedPost({ post }) {
         </div>
 
         <div>
-          <p className="my-2 text-XL text-gray-500">{post.desc}</p>
+          <p className="my-2 text-sm text-gray-500">{post.desc}</p>
 
           {/* post and image rendering */}
           {post.img && (
