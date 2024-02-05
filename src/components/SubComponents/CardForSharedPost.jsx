@@ -5,6 +5,7 @@ import UserAvatar from "./UserAvatar";
 import PropTypes from "prop-types";
 import "ionicons";
 import { formatDistanceToNow } from "date-fns";
+import axios from "axios";
 
 function CardForSharedPost({ post }) {
   const { user } = useContext(UserContext);
@@ -15,6 +16,41 @@ function CardForSharedPost({ post }) {
   const [showComments, setShowComments] = useState(false);
   const toggleComments = () => {
     setShowComments(!showComments);
+  };
+
+  const [userLiked, setUserLiked] = useState(post.likes.includes(user.userId));
+  const [likesCount, setLikesCount] = useState(post.likes.length);
+
+  const handleLike = async () => {
+    const newLikesCount = userLiked ? likesCount - 1 : likesCount + 1;
+    const wasLiked = userLiked;
+
+    try {
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        console.log("User not authenticated");
+        return;
+      }
+
+      setUserLiked(!userLiked);
+      setLikesCount(newLikesCount);
+
+      await axios.put(
+        `http://localhost:5005/posts/${post._id}/like`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (error) {
+      console.log("Error liking the post: ", error);
+
+      setUserLiked(wasLiked);
+      setLikesCount(wasLiked ? newLikesCount + 1 : newLikesCount - 1);
+    }
   };
 
   if (!post) {
@@ -68,28 +104,26 @@ function CardForSharedPost({ post }) {
             </div>
           )}
 
-          <div className=" flex mt-4 mb-5">
+          <div className=" flex">
             {/* like button */}
             <div>
-              <button className="flex gap-2 items-center">
-                <ion-icon name="thumbs-up-outline">29</ion-icon>
+              <button onClick={handleLike} className="flex gap-2 px-4">
+                <ion-icon name="thumbs-up-outline"></ion-icon>
+                {likesCount}
               </button>
             </div>
 
             {/* comment button */}
             <div>
-              <button
-                onClick={toggleComments}
-                className="flex gap-2 px-4 items-center"
-              >
-                <ion-icon name="chatbubble-outline">4</ion-icon>
+              <button onClick={toggleComments} className="flex gap-2 px-4">
+                <ion-icon name="chatbubble-outline"></ion-icon>
               </button>
             </div>
 
             {/* share button */}
             <div>
               <button className="flex gap-2 px-2 items-center">
-                <ion-icon name="share-social-outline">5</ion-icon>
+                <ion-icon name="share-social-outline"></ion-icon>
               </button>
             </div>
           </div>
