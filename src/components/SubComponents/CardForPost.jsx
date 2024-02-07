@@ -67,8 +67,9 @@ function CardForPost({ onPostCreated }) {
         <UserAvatar
           profileImageUrl={user.profilepic}
           isOnline={true}
-          size="w-20 h-20"
-          indicatorPosition="top-14 start-16"
+          size="w-11 h-11 md:w-20 md:h-20"
+          indicatorPosition="top-1 right-1 md:top-2 md:right-2"
+          indicatorSize="w-3.5 h-3.5"
         />
 
         <textarea

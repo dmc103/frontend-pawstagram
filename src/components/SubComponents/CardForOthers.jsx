@@ -242,8 +242,8 @@ function CardForOthers({ post }) {
                 <UserAvatar
                   profileImageUrl={comment.profileImageUrl}
                   isOnline={true}
-                  size="w-16 h-16 md:w-20 md:h-20"
-                  indicatorPosition="absolute top-14 left-16"
+                  size="w-11 h-11 md:w-16 md:h-16"
+                  indicatorPosition="absolute top-10 left-14"
                   className="group-hover:scale-150 group-hover:-translate-x-24 group-hover:-translate-y-20 transition-all duration-500"
                 />
                 <div className="ml-2 flex-1">
