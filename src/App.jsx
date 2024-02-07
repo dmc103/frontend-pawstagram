@@ -6,6 +6,7 @@ import LandingPage from "./components/LandingPage";
 import UserHome from "./components/UserHome";
 import UserProfile from "./components/UserProfile";
 import "ionicons";
+import axios from "axios";
 import { ThemeProviderWrapper } from "./contexts/ThemeContext";
 import ForgotPassword from "./components/SubComponents/ForgotPassword";
 import ManageProfile from "./components/SubComponents/ManageProfile";
@@ -22,12 +23,19 @@ function App() {
     const authToken = localStorage.getItem("authToken");
     const userId = localStorage.getItem("userId");
 
-    if (authToken) {
-      setUser({
-        authToken,
-        userId,
-      });
-      navigate("/homepage");
+    if (authToken && userId) {
+      axios
+        .get(`http://localhost:5005/user/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        })
+        .then((response) => {
+          setUser(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching user data:", error);
+        });
     }
   }, [setUser, navigate]);
 

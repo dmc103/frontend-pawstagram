@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../contexts/UserContext";
 import axios from "axios";
 import PropTypes from "prop-types";
 import logo from "../assets/pawstagram.png";
@@ -8,6 +9,7 @@ function LoginForm({ onLoginSuccess, onFlip }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,6 +46,9 @@ function LoginForm({ onLoginSuccess, onFlip }) {
             },
           }
         );
+        const userProfile = loginResponse.data;
+
+        setUser(userProfile);
         navigate("/homepage");
 
         onLoginSuccess(loginData.authToken);
