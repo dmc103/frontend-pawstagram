@@ -180,7 +180,10 @@ function CardForOthers({ post }) {
           <div className=" flex">
             {/* like button */}
             <div>
-              <button onClick={handleLike} className="flex gap-2 px-4">
+              <button
+                onClick={handleLike}
+                className="flex gap-2 px-4 hover:scale-110"
+              >
                 <ion-icon
                   name={userLiked ? "thumbs-up-sharp" : "thumbs-up-outline"}
                 ></ion-icon>
