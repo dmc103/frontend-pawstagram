@@ -29,10 +29,8 @@ function UserProfile() {
     <div className={"color-bg " + theme}>
       <TopBar />
 
-      <div className={"flex mt-4 max-w-4xl mx-auto gap-6 color-bg " + theme}>
-        <div className={theme}>
-          <Nav />
-        </div>
+      <div className={"flex flex-col gap-6 color-bg " + theme}>
+        <Nav />
 
         <Card>
           <div className="relative">

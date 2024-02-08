@@ -33,7 +33,7 @@ function CardForSharedPost({ post }) {
   return (
     <Card>
       <div>
-        <div className="flex px-5">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 px-4">
           <a href={`/profile/${user.userName}`} className="cursor-pointer">
             <UserAvatar
               profileImageUrl={user.profilepic}
@@ -42,7 +42,7 @@ function CardForSharedPost({ post }) {
               indicatorPosition="top-14 start-16"
             />
           </a>
-          <div className="grow">
+          <div className="md:grow">
             <p>
               <a
                 href={`/profile/${user.userName}`}
@@ -58,25 +58,25 @@ function CardForSharedPost({ post }) {
         </div>
 
         <div>
-          <p className="my-2 text-XL text-gray-500">{post.desc}</p>
+          <p className="my-2 text-xl text-gray-500">{post.desc}</p>
 
           {/* post and image rendering */}
           {post.img && (
             <div className="rounded-md overflow-hidden">
-              <img src={post.img} alt="Post" className="post-image" />
+              <img src={post.img} alt="Post" className="post-image w-full" />
             </div>
           )}
 
-          <div className=" flex mt-4 mb-5">
+          <div className="flex mt-4 mb-5 items-center">
             {/* like button */}
-            <div>
-              <button className="flex gap-2 items-center">
+            <div className="flex items-center">
+              <button className="flex gap-2">
                 <ion-icon name="thumbs-up-outline">29</ion-icon>
               </button>
             </div>
 
             {/* comment button */}
-            <div>
+            <div className="flex items-center">
               <button
                 onClick={toggleComments}
                 className="flex gap-2 px-4 items-center"
@@ -86,7 +86,7 @@ function CardForSharedPost({ post }) {
             </div>
 
             {/* share button */}
-            <div>
+            <div className="flex items-center">
               <button className="flex gap-2 px-2 items-center">
                 <ion-icon name="share-social-outline">5</ion-icon>
               </button>
@@ -95,9 +95,9 @@ function CardForSharedPost({ post }) {
 
           {/* comment space */}
           {showComments && (
-            <div className="flex mt-4 gap-3">
+            <div className="flex mt-4 gap-3 items-center">
               <div>
-                <UserAvatar isOnline={true} />
+                <UserAvatar isOnline={true} size="w-10 h-10" />
               </div>
               <textarea
                 className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2"

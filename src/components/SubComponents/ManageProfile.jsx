@@ -52,8 +52,6 @@ function ManageProfile() {
     event.preventDefault();
     setLoading(true);
     try {
-      // tp update the user's profile data on the server
-      // await axios.put(`/api/users/${user._id}`, formData);
       const response = await axios.patch(
         `http://localhost:5005/user/${user._id}/update`,
         formData
@@ -67,20 +65,7 @@ function ManageProfile() {
     }
   };
 
-  const spinner = "https://i.gifer.com/Xqg8.gif";
-
-  if (loading) {
-    return (
-      <div className="h-screen flex flex-col items-center justify-center">
-        <img src={spinner} alt="spinner" />
-        <p style={{ fontSize: "20px" }}>Loading ...</p>
-      </div>
-    );
-  }
-
   const handleUploadImage = async (newImageUrl) => {
-    // console.log("THIS IS newImageUrl", newImageUrl);
-
     const updatedUser = {
       ...user,
       profilepic: newImageUrl,
@@ -92,7 +77,6 @@ function ManageProfile() {
         updatedUser
       );
       setUser(response.data);
-
       console.log("Profile is updated successfully:", response.data);
     } catch (error) {
       console.error("Error updating profile:", error);
@@ -139,7 +123,7 @@ function ManageProfile() {
   };
 
   return (
-    <div className="bg-pawBgFive sm: min-h-screen flex flex-col items-center justify-center">
+    <div className="bg-pawBgFive min-h-screen flex flex-col items-center justify-center">
       <div className="flex flex-col items-center">
         {!loading && user && (
           <UserAvatar
@@ -149,13 +133,12 @@ function ManageProfile() {
             indicatorPosition="top-14 start-16"
           />
         )}
-
         <ProfilePicUploader onImageUpload={handleUploadImage} />
       </div>
       <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg manage-bg">
-        <div className="mt-16 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <form className="space-y-6" onSubmit={handleInputChange}>
+            <form className="space-y-6">
               <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
                 <input
                   type="text"
@@ -166,7 +149,6 @@ function ManageProfile() {
                   value={formData.userName}
                   onChange={handleInputChange}
                 />
-
                 <label
                   htmlFor="username"
                   className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
@@ -185,7 +167,6 @@ function ManageProfile() {
                   value={formData.firstName}
                   onChange={handleInputChange}
                 />
-
                 <label
                   htmlFor="firstname"
                   className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
@@ -204,7 +185,6 @@ function ManageProfile() {
                   value={formData.lastName}
                   onChange={handleInputChange}
                 />
-
                 <label
                   htmlFor="lastname"
                   className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
@@ -223,7 +203,6 @@ function ManageProfile() {
                   value={formData.email}
                   onChange={handleInputChange}
                 />
-
                 <label
                   htmlFor="email"
                   className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
@@ -231,6 +210,7 @@ function ManageProfile() {
                   Email
                 </label>
               </div>
+
               <div className="relative floating-label-container">
                 <textarea
                   type="bio"
@@ -242,7 +222,6 @@ function ManageProfile() {
                   onChange={handleInputChange}
                   rows="4"
                 ></textarea>
-
                 <label
                   htmlFor="bio"
                   className="absolute left-1 top-1 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"

@@ -49,21 +49,8 @@ const Tab = () => {
   const activeIndex = Menus.findIndex((menu) => menu.name === activeTab);
 
   return (
-    <div
-      className={
-        "bg-rose-200 max-h-[5.5rem] px-6 rounded-t-xl scale-95 color-bg " +
-        theme
-      }
-    >
-      <ul className="flex relative">
-        <span
-          className={`bg-rose-200 duration-500 ${Menus[activeIndex]?.dis} border-4 border-white h-16 w-16 absolute -top-5 rounded-full`}
-        >
-          <span className="w-3.5 h-3.5 bg-transparent absolute top-4 -left-[18px] rounded-tr-[11px] shadow-shadow1"></span>
-
-          <span className="w-3.5 h-3.5 bg-transparent absolute top-4 -right-[18px] rounded-tl-[11px] shadow-shadow2"></span>
-        </span>
-
+    <div className={`bg-rose-200 rounded-t-xl scale-95 color-bg ${theme}`}>
+      <ul className="flex relative overflow-x-scroll">
         {Menus.map((menu, index) => (
           <li key={index} className="w-16">
             <a

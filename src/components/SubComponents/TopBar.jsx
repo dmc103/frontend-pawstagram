@@ -1,23 +1,18 @@
-import "ionicons";
+import React, { useContext } from "react";
 import pawstagram from "../../assets/logo_2.png";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import { useContext } from "react";
 
 function TopBar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <div
-      className={
-        "w-full flex justify-between items-center border-gray-200 px-4 sm:px-6 lg:px-8 bg-pawBgFour top-bar " +
-        theme
-      }
+      className={`w-full flex justify-between items-center border-gray-200 px-4 sm:px-6 lg:px-8 bg-pawBgFour top-bar ${theme}`}
     >
       {/* Logo Section */}
       <div className="flex-shrink-0">
         <button className="theme-btn" onClick={toggleTheme}>
           <img src={pawstagram} className="h-14 w-14" alt="Pawstagram logo" />
-          {/* {theme === "light" ? "dark" : "light"} */}
         </button>
       </div>
 
@@ -28,10 +23,7 @@ function TopBar() {
             <input
               id="search"
               type="search"
-              className={
-                "block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white dark:text-gray-500 focus:outline-none focus:ring-2 focus:ring-pawBgOne focus:border-pawBgOne text-sm color-bg " +
-                theme
-              }
+              className={`block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white dark:text-gray-500 focus:outline-none focus:ring-2 focus:ring-pawBgOne focus:border-pawBgOne text-sm color-bg ${theme}`}
               placeholder="Search..."
             />
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -49,7 +41,7 @@ function TopBar() {
         {/* Notifications Button */}
         <button
           type="button"
-          className="ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
+          className={`ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out ${theme}`}
           aria-label="Notifications"
         >
           <ion-icon
@@ -61,7 +53,7 @@ function TopBar() {
         {/* Logout Button */}
         <button
           type="button"
-          className="ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
+          className={`ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out ${theme}`}
           aria-label="Logout"
         >
           <ion-icon

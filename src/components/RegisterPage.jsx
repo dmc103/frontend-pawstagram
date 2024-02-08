@@ -52,7 +52,7 @@ function RegisterPage({ toggleFlip }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-md w-full space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg hi-greet-bg">
+      <div className="max-w-md w-full sm:w-96 space-y-8 p-10 bg-pawBgFour rounded-xl shadow-lg hi-greet-bg">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <p className="mt-16 text-center text-sm text-indigo-900">
             {registerSuccess
@@ -64,144 +64,8 @@ function RegisterPage({ toggleFlip }) {
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  placeholder=""
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-
-                <label
-                  htmlFor="email"
-                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
-                  style={{
-                    transform: email ? "translateY(-1rem)" : undefined,
-                  }}
-                >
-                  Email address
-                </label>
-              </div>
-
-              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
-                <input
-                  type="username"
-                  name="username"
-                  id="username"
-                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  placeholder=""
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
-                  required
-                />
-
-                <label
-                  htmlFor="username"
-                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
-                  style={{
-                    transform: userName ? "translateY(-1rem)" : undefined,
-                  }}
-                >
-                  Username
-                </label>
-              </div>
-
-              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
-                <input
-                  type="firstname"
-                  name="firstname"
-                  id="firstname"
-                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  placeholder=""
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  required
-                />
-
-                <label
-                  htmlFor="firstname"
-                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
-                  style={{
-                    transform: firstName ? "translateY(-1rem)" : undefined,
-                  }}
-                >
-                  First Name
-                </label>
-              </div>
-
-              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
-                <input
-                  type="lastname"
-                  name="lastname"
-                  id="lastname"
-                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  placeholder=""
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  required
-                />
-
-                <label
-                  htmlFor="lastname"
-                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
-                  style={{
-                    transform: lastName ? "translateY(-1rem)" : undefined,
-                  }}
-                >
-                  Last Name
-                </label>
-              </div>
-
-              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  placeholder=""
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  autoComplete="current-password"
-                />
-
-                <label
-                  htmlFor="password"
-                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
-                  style={{
-                    transform: password ? "translateY(-1rem)" : undefined,
-                  }}
-                >
-                  Password
-                </label>
-              </div>
-              <div className="relative border border-gray-300 bg-amber-50 rounded-md floating-label-container">
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  id="confirmPassword"
-                  className="w-full p-3 border border-gray-300 bg-amber-50 rounded-md"
-                  placeholder=""
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                />
-
-                <label
-                  htmlFor="password"
-                  className="absolute left-1 top-2 text-gray-500 pointer-events-none transition-all transform -translate-y-6 scale-75"
-                  style={{
-                    transform: password ? "translateY(-1rem)" : undefined,
-                  }}
-                >
-                  Confirm Password
-                </label>
-              </div>
-
+              {/* Form inputs with labels */}
+              
               <div>
                 <button
                   type="submit"
@@ -211,6 +75,7 @@ function RegisterPage({ toggleFlip }) {
                 </button>
               </div>
             </form>
+            {/* Login link */}
             <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
@@ -239,7 +104,7 @@ function RegisterPage({ toggleFlip }) {
   );
 }
 
-//props validation
+// Props validation
 RegisterPage.propTypes = {
   toggleFlip: PropTypes.func.isRequired,
 };
