@@ -7,6 +7,8 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import "ionicons";
 import PropTypes from "prop-types";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
 function CardForPost({ onPostCreated }) {
   const { user } = useContext(UserContext);
   const { theme } = useContext(ThemeContext);
@@ -42,7 +44,7 @@ function CardForPost({ onPostCreated }) {
         },
       };
       const response = await axios.post(
-        "http://localhost:5005/posts/create",
+        `${API_URL}/posts/create`,
         formData,
         config
       );

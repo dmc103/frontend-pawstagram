@@ -12,6 +12,8 @@ import ForgotPassword from "./components/SubComponents/ForgotPassword";
 import ManageProfile from "./components/SubComponents/ManageProfile";
 import ResetPassword from "./components/SubComponents/ResetPassword";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
 function App() {
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -25,7 +27,7 @@ function App() {
 
     if (authToken && userId) {
       axios
-        .get(`http://localhost:5005/user/${userId}`, {
+        .get(`${API_URL}/user/${userId}`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },

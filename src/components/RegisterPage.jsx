@@ -16,6 +16,8 @@ function RegisterPage({ toggleFlip }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
     if (password !== confirmPassword) {
       alert("Passwords don't match, try again");
       return;
@@ -24,7 +26,7 @@ function RegisterPage({ toggleFlip }) {
     console.log("Register form submitted");
 
     try {
-      const response = await axios.post("http://localhost:5005/auth/register", {
+      const response = await axios.post(`${API_URL}/auth/register`, {
         email,
         userName,
         firstName,

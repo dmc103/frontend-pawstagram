@@ -7,6 +7,8 @@ import PropTypes from "prop-types";
 import "ionicons";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
 function CardForOthers({ post }) {
   const { user } = useContext(UserContext);
   const [userLiked, setUserLiked] = useState(post.likes.includes(user.userId));
@@ -22,15 +24,12 @@ function CardForOthers({ post }) {
         console.log("User not authenticated");
         return;
       }
-      const response = await axios.get(
-        `http://localhost:5005/posts/${post._id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.get(`${API_URL}/posts/${post._id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (response.status === 200) {
         setUserLiked(
@@ -65,7 +64,7 @@ function CardForOthers({ post }) {
       }
 
       const response = await axios.put(
-        `http://localhost:5005/posts/${post._id}/like`,
+        `${API_URL}/posts/${post._id}/like`,
         { userId: user._id },
         {
           headers: {
@@ -95,7 +94,7 @@ function CardForOthers({ post }) {
         return;
       }
       const response = await axios.post(
-        `http://localhost:5005/posts/${post._id}/comments`,
+        `${API_URL}/posts/${post._id}/comments`,
         {
           text: commentText,
           userName: user.userName,
@@ -251,7 +250,7 @@ function CardForOthers({ post }) {
                 />
                 <div className="ml-2 flex-1">
                   <b>
-                    <p className="text-sm text-blue-900">{comment.userName}</p>
+                    <p className="text-sm text-blue-700">{comment.userName}</p>
                   </b>
                   <p className="text-sm text-gray-600">{comment.text}</p>
                 </div>

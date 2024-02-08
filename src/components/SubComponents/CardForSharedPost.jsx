@@ -7,6 +7,8 @@ import "ionicons";
 import { formatDistanceToNow } from "date-fns";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
 function CardForSharedPost({ post }) {
   const { user } = useContext(UserContext);
 
@@ -36,7 +38,7 @@ function CardForSharedPost({ post }) {
       setLikesCount(newLikesCount);
 
       await axios.put(
-        `http://localhost:5005/posts/${post._id}/like`,
+        `${API_URL}/posts/${post._id}/like`,
         {},
         {
           headers: {

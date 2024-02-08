@@ -11,16 +11,15 @@ function LoginForm({ onLoginSuccess, onFlip }) {
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const loginResponse = await axios.post(
-        "http://localhost:5005/auth/login",
-        {
-          email,
-          password,
-        }
-      );
+      const loginResponse = await axios.post(`${API_URL}/auth/login`, {
+        email,
+        password,
+      });
 
       console.log(loginResponse.data);
 
@@ -35,7 +34,7 @@ function LoginForm({ onLoginSuccess, onFlip }) {
 
         //update online status
         await axios.post(
-          "http://localhost:5005/user/status",
+          `${API_URL}/user/status`,
           {
             userId: loginData.userId,
             isOnline: true,
