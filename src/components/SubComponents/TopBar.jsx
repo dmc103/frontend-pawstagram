@@ -1,9 +1,24 @@
 import React, { useContext } from "react";
 import pawstagram from "../../assets/logo_2.png";
 import { ThemeContext } from "../../contexts/ThemeContext";
+<<<<<<< HEAD
+=======
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
+>>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
 
 function TopBar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleLogout = (event) => {
+    event.preventDefault();
+    localStorage.clear();
+    setUser(null);
+    navigate("/login");
+  };
 
   return (
     <div
@@ -53,7 +68,12 @@ function TopBar() {
         {/* Logout Button */}
         <button
           type="button"
+<<<<<<< HEAD
           className={`ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out ${theme}`}
+=======
+          onClick={handleLogout}
+          className="ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
+>>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
           aria-label="Logout"
         >
           <ion-icon

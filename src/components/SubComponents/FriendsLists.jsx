@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
 function FriendsLists({ currentUser }) {
   const [friends, setFriends] = useState([]);
 
@@ -10,7 +12,7 @@ function FriendsLists({ currentUser }) {
       if (currentUser && currentUser.following.length > 0) {
         try {
           const response = await axios.post(
-            "http://localhost:5005/user/friends",
+            `${API_URL}/user/friends`,
             {
               userIds: currentUser.following,
             },

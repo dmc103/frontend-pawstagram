@@ -7,6 +7,8 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import "ionicons";
 import PropTypes from "prop-types";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
 function CardForPost({ onPostCreated }) {
   const { user } = useContext(UserContext);
   const { theme } = useContext(ThemeContext);
@@ -42,7 +44,7 @@ function CardForPost({ onPostCreated }) {
         },
       };
       const response = await axios.post(
-        "http://localhost:5005/posts/create",
+        `${API_URL}/posts/create`,
         formData,
         config
       );
@@ -67,8 +69,9 @@ function CardForPost({ onPostCreated }) {
         <UserAvatar
           profileImageUrl={user.profilepic}
           isOnline={true}
-          size="w-20 h-20"
-          indicatorPosition="top-14 start-16"
+          size="w-11 h-11 md:w-20 md:h-20"
+          indicatorPosition="top-1 right-1 md:top-2 md:right-2"
+          indicatorSize="w-3.5 h-3.5"
         />
 
         <textarea

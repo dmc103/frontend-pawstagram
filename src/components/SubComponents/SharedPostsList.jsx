@@ -4,15 +4,17 @@ import Card from "./Card";
 import PropTypes from "prop-types";
 import CardForSharedPost from "./CardForSharedPost";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
 function SharedPostsList({ userId, refreshTrigger }) {
   const [posts, setPosts] = useState([]);
+
+  console.log(" Here are the user's posts:", posts);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5005/posts/timeline/${userId}`
-        );
+        const response = await axios.get(`${API_URL}/posts/timeline/${userId}`);
         const sortedPosts = response.data.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
@@ -36,7 +38,7 @@ function SharedPostsList({ userId, refreshTrigger }) {
     );
   }
 
-  // to render the list of posts
+  // to render the list of user's posts
   return (
     <div className="post-container">
       {posts.map((post) => (

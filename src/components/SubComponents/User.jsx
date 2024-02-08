@@ -3,6 +3,8 @@ import axios from "axios";
 import UserComp from "./UserComp";
 import PropTypes from "prop-types";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
 function User({ currentUser }) {
   const [users, setUsers] = useState([]);
 
@@ -10,7 +12,7 @@ function User({ currentUser }) {
     if (currentUser && currentUser._id) {
       const fetchUsers = async () => {
         try {
-          const response = await axios.get("http://localhost:5005/user/users", {
+          const response = await axios.get(`${API_URL}/user/users`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("authToken")}`,
             },
@@ -28,7 +30,7 @@ function User({ currentUser }) {
   const addFriend = async (userId) => {
     try {
       await axios.put(
-        `http://localhost:5005/user/${userId}/follow`,
+        `${API_URL}/user/${userId}/follow`,
         {},
         {
           headers: {

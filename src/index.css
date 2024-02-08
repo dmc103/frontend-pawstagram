@@ -68,7 +68,7 @@ h1 {
 } 
 
 .top-bar.dark  {
-  background-color: #646471;
+  background-color: #52525b;
   color: #F5F7FB;
 }
 
@@ -200,27 +200,35 @@ h1 {
 
 
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #F5F7FB;
+
+/* Mobile first */
+@media screen and (min-width: 620px) { 
+  .hover\:scale-95:hover {
+    transform: scale(0.50); 
   }
-  a:hover {
-    color: #747bff;
+  .scale-95 {
+    transform: scale(0.50); 
   }
-  button {
-    background-color: #f9f9f9;
-  }
+
 }
 
-
-
-@media (max-width: 640px) { 
+/* Tablet first */
+@media screen and (min-width: 960px) { 
   .hover\:scale-95:hover {
     transform: scale(0.95); 
   }
   .scale-95 {
     transform: scale(0.95); 
   }
+}
 
+
+/* Desktop first */
+@media screen and (min-width: 1200px) { 
+  .hover\:scale-95:hover {
+    transform: scale(0.95); 
+  }
+  .scale-95 {
+    transform: scale(0.95); 
+  }
 }

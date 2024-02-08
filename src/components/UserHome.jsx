@@ -5,9 +5,14 @@ import Nav from "./SubComponents/Nav";
 import CardForPost from "./SubComponents/CardForPost";
 import { ThemeContext } from "../contexts/ThemeContext";
 import TopBar from "./SubComponents/TopBar";
+<<<<<<< HEAD
 import SharedPostsList from "./SubComponents/SharedPostsList";
+=======
+import "../index.css";
+>>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
 import User from "./SubComponents/User";
 import Card from "./SubComponents/Card";
+import AllPostsList from "./SubComponents/AllPostsList";
 
 function UserHome() {
   const { user } = useContext(UserContext);
@@ -35,34 +40,38 @@ function UserHome() {
     );
   }
 
-  console.log(
-    "refreshTrigger value right before SharedPostsList:",
-    refreshTrigger
-  );
+  // console.log(
+  //   "refreshTrigger value right before SharedPostsList:",
+  //   refreshTrigger
+  // );
 
   return (
     <div>
       <TopBar />
       <div
         className={
+<<<<<<< HEAD
           "w-full px-4 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-auto no-border" +
           theme
         }
       >
         <div className={"flex flex-col-reverse lg:flex-row " + theme}>
           <div className={"mt-4 lg:max-w-4xl lg:w-1/4 " + theme}>
+=======
+          " w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-auto no-border color-bg " +
+          theme
+        }
+      >
+        <div className="flex">
+          <div className="mt-4 max-w-4xl">
+>>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
             <Nav />
           </div>
 
           <div className="lg:flex-grow mx-0 lg:mx-24 mt-4">
             <CardForPost onPostCreated={toggleRefresh} />
 
-            {user && (
-              <SharedPostsList
-                userId={user._id}
-                refreshTrigger={refreshTrigger}
-              />
-            )}
+            <AllPostsList refreshTrigger={refreshTrigger} />
           </div>
 
           <div className="hidden lg:block w-1/4">

@@ -6,6 +6,8 @@ import { countries } from "countries-list";
 import ProfilePicUploader from "../ProfilePicUploader";
 import UserAvatar from "./UserAvatar";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
 function ManageProfile() {
   const { user, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
@@ -53,7 +55,7 @@ function ManageProfile() {
     setLoading(true);
     try {
       const response = await axios.patch(
-        `http://localhost:5005/user/${user._id}/update`,
+        `${API_URL}/user/${user._id}/update`,
         formData
       );
       setUser(response.data);
@@ -73,7 +75,7 @@ function ManageProfile() {
 
     try {
       const response = await axios.patch(
-        `http://localhost:5005/user/${user._id}/update`,
+        `${API_URL}/user/${user._id}/update`,
         updatedUser
       );
       setUser(response.data);
@@ -102,7 +104,7 @@ function ManageProfile() {
         navigate("/login");
         return;
       }
-      await axios.delete(`http://localhost:5005/user/${user._id}/delete`, {
+      await axios.delete(`${API_URL}/user/${user._id}/delete`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },

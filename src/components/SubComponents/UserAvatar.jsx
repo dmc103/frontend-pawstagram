@@ -20,7 +20,7 @@ function UserAvatar({
           className="w-full h-full object-cover"
         />
         <div
-          className={`absolute ${indicatorPosition} ${indicatorSize}w-3.5 h-3.5 ${indicatorColor} border-2 border-white rounded-full`}
+          className={`absolute ${indicatorPosition} ${indicatorSize} ${indicatorColor} border-2 border-white rounded-full`}
         ></div>
       </div>
     </div>
