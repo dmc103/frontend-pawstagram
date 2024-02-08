@@ -10,7 +10,6 @@ import axios from "axios";
 import { ThemeProviderWrapper } from "./contexts/ThemeContext";
 import ForgotPassword from "./components/SubComponents/ForgotPassword";
 import ManageProfile from "./components/SubComponents/ManageProfile";
-import ResetPassword from "./components/SubComponents/ResetPassword";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
@@ -53,7 +52,6 @@ function App() {
         <Route path="/profile/:userName" element={<UserProfile />} />
         <Route path="/manageProfile" element={<ManageProfile />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="*" element={<Navigate replace to="/login" />} />
       </Routes>
     </ThemeProviderWrapper>
