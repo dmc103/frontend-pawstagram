@@ -250,8 +250,10 @@ function CardForOthers({ post }) {
                   className="group-hover:scale-150 group-hover:-translate-x-24 group-hover:-translate-y-20 transition-all duration-500"
                 />
                 <div className="ml-2 flex-1">
+                  <b>
+                    <p className="text-sm text-blue-900">{comment.userName}</p>
+                  </b>
                   <p className="text-sm text-gray-600">{comment.text}</p>
-                  <p className="text-sm text-gray-600">{comment.userName}</p>
                 </div>
               </div>
             ))}
