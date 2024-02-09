@@ -82,7 +82,11 @@ function Nav() {
           backgroundColor: isHovered ? "white" : undefined,
         }}
       >
-        <div className={"flex flex-col h-screen justify-between pt-2 pb-4 color-bg " + theme}>
+        <div
+          className={
+            "flex flex-col h-screen justify-between pt-2 pb-4 color-bg " + theme
+          }
+        >
           <div>
             <a href={`/profile/${user.userName}`} className="cursor-pointer">
               <div className="w-max p-2.5">
@@ -115,7 +119,7 @@ function Nav() {
                   >
                     Home
                   </span>
-                </NavLink>
+                </NavLinkWithClose>
               </li>
 
               {/* Friends */}
@@ -130,13 +134,9 @@ function Nav() {
                   <span style={{ opacity: isHovered ? 1 : 0 }}>
                     Manage Profile
                   </span>
-<<<<<<< HEAD
-                </NavLink>
-=======
                 </NavLinkWithClose>
 
                 {/* Chat */}
->>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
               </li>
 
               {/* Chat */}

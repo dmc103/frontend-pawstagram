@@ -97,26 +97,11 @@ function CardForSharedPost({ post }) {
         </div>
 
         <div>
-<<<<<<< HEAD
-          <p className="my-2 text-xl text-gray-500">{post.desc}</p>
-=======
           <p className="my-2 text-sm text-gray-500">{post.desc}</p>
->>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
 
           {/* post and image rendering */}
           {post.img && (
             <div className="rounded-md overflow-hidden">
-<<<<<<< HEAD
-              <img src={post.img} alt="Post" className="post-image w-full" />
-            </div>
-          )}
-
-          <div className="flex mt-4 mb-5 items-center">
-            {/* like button */}
-            <div className="flex items-center">
-              <button className="flex gap-2">
-                <ion-icon name="thumbs-up-outline">29</ion-icon>
-=======
               <img src={post.img} alt="Post" className="post-image w-1/2" />
             </div>
           )}
@@ -127,23 +112,13 @@ function CardForSharedPost({ post }) {
               <button onClick={handleLike} className="flex gap-2 px-4">
                 <ion-icon name="thumbs-up-outline"></ion-icon>
                 {likesCount}
->>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
               </button>
             </div>
 
             {/* comment button */}
-<<<<<<< HEAD
-            <div className="flex items-center">
-              <button
-                onClick={toggleComments}
-                className="flex gap-2 px-4 items-center"
-              >
-                <ion-icon name="chatbubble-outline">4</ion-icon>
-=======
             <div>
               <button onClick={toggleComments} className="flex gap-2 px-4">
                 <ion-icon name="chatbubble-outline"></ion-icon>
->>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
               </button>
             </div>
 
@@ -159,16 +134,12 @@ function CardForSharedPost({ post }) {
           {showComments && (
             <div className="flex mt-4 gap-3 items-center">
               <div>
-<<<<<<< HEAD
-                <UserAvatar isOnline={true} size="w-10 h-10" />
-=======
                 <UserAvatar
                   profileImageUrl={user.profilepic}
                   isOnline={true}
                   size="w-11 h-11"
                   indicatorPosition="bottom-0 right-0"
                 />
->>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
               </div>
               <textarea
                 className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2"
