@@ -60,9 +60,6 @@ function Nav() {
   };
 
   return (
-<<<<<<< HEAD
-    <div className={"color-bg " + theme}>
-=======
     <div className={"min-h-screen " + theme}>
       <button
         className="md:hidden p-4 focus:outline-none"
@@ -70,7 +67,6 @@ function Nav() {
       >
         <ion-icon name="menu-outline" className="text-3xl"></ion-icon>
       </button>
->>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
       <div
         className={
           "sidebar fixed inset-y-0 left-0 z-10 w-56 overflow-auto transition-all duration-500 transform backdrop-blur-sm shadow-lg md:relative md:translate-x-0 " +
@@ -86,17 +82,8 @@ function Nav() {
           backgroundColor: isHovered ? "white" : undefined,
         }}
       >
-<<<<<<< HEAD
         <div className={"flex flex-col h-screen justify-between pt-2 pb-4 color-bg " + theme}>
           <div>
-=======
-        <div
-          className={
-            "flex h-screen flex-col justify-between pt-2 pb-4 color-bg " + theme
-          }
-        >
-          <div className={"color-bg " + theme}>
->>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
             <a href={`/profile/${user.userName}`} className="cursor-pointer">
               <div className="w-max p-2.5">
                 <UserAvatar
@@ -122,7 +109,6 @@ function Nav() {
                     name="home-outline"
                     className={"text-2xl " + theme}
                   ></ion-icon>
-<<<<<<< HEAD
                   <span
                     className="transition-opacity duration-300"
                     style={{ opacity: isHovered ? 1 : 0 }}
@@ -130,12 +116,6 @@ function Nav() {
                     Home
                   </span>
                 </NavLink>
-=======
-                  <span style={{ opacity: isHovered ? 1 : 0 }}>Home</span>
-                </NavLinkWithClose>
-
-                {/* Friends */}
->>>>>>> c7f862015d58bbf24d44c9970bdc9b668343406a
               </li>
 
               {/* Friends */}
