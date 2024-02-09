@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
@@ -7,6 +7,8 @@ const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}/;
@@ -20,6 +22,10 @@ const ResetPassword = () => {
      }
      else {
       console.log("ok for now")
+      setMessage("Password changed. Redirecting to login...")
+      setInterval(() => {
+        navigate('/login')
+      }, 3000);
      }
     } catch (err) {
       console.log(err);
