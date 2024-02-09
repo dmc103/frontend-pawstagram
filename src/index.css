@@ -87,6 +87,11 @@ h1 {
   color: #F5F7FB;
 }
 
+.top-bar.dark:hover {
+  background-color: #52525b;
+  color:black
+}
+
 .blink_me {
   animation: blinker 5s linear infinite;
 }

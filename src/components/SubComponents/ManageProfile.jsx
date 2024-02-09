@@ -308,7 +308,7 @@ function ManageProfile() {
                   <div className="px-2 mt-6 bg-white text-gray-500">
                     Want to manage your password, too?
                     <div className="test-container">
-                      <Link to="/reset-password">
+                      <Link to="/reset-password/:id/:token">
                         <button
                           type="button"
                           className="font-medium text-indigo-600 hover:text-indigo-500 text-center"

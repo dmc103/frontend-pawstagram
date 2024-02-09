@@ -1,5 +1,6 @@
+import axios from "axios";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
@@ -7,12 +8,13 @@ const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+  const { id, token } = useParams();
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}/;
     e.preventDefault();
+    const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}/;
     try {
      if (newPassword !== confirmPassword) {
       setMessage("Passwords don't match.");
@@ -21,7 +23,10 @@ const ResetPassword = () => {
       setMessage("Password must have at least 3 characters and contain at least one uppercase letter, one lowercase letter, and one number.")
      }
      else {
-      console.log("ok for now")
+      // console.log("ok for now")
+      const response = await axios.post(`${API_URL}/auth/reset-password/${id}/${token}`, confirmPassword);
+      console.log(response.data);
+      setNewPassword(confirmPassword);
       setMessage("Password changed. Redirecting to login...")
       setInterval(() => {
         navigate('/login')
@@ -34,7 +39,7 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="bg-indigo-500 sm: min-h-screen flex flex-col items-center justify-center">
+    <div className="bg-indigo-500 min-h-screen flex flex-col items-center justify-center sm:auto sm: px-6">
       <div className="bg-amber-50 p-10 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] rounded-lg max-w-2xl sm: m-auto">
         <h2 className="text-center text-slate-900 mb-6 font-medium text-3xl hover:text-indigo-800">
           Reset Password
@@ -61,7 +66,7 @@ const ResetPassword = () => {
             name="confirm-password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="w-full p-3 bg-amber-50 rounded-lg mb-6 border border-slate-700 hover:bg-amber-200"
+            className="w-full p-3 bg-amber-50 rounded-lg mb-3 border border-slate-700 hover:bg-amber-200"
             placeholder="Confirm your password"
             required
           />
@@ -75,7 +80,7 @@ const ResetPassword = () => {
             Send
           </button>
         </form>
-        <div className="text-decoration-line: underline text-end">
+        <div className="text-decoration-line: underline text-end text-sm">
         <Link to="/register">
           Don't have an account yet?
         </Link>
