@@ -56,7 +56,7 @@ const ForgotPassword = () => {
           >
             Send reset link
           </button>
-          {message && <p className="text-center mt-4">{message}</p>}
+          {message && <p className="text-center mt-4 text-xs">{message}</p>}
         </form>
         <div className="text underline text-end text-sm">
           <a href="/login">Back to Login</a>

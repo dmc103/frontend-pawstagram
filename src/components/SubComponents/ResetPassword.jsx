@@ -20,7 +20,7 @@ const ResetPassword = () => {
       setMessage("Passwords don't match.");
     }
      else if (!passwordRegex.test(newPassword) || !passwordRegex.test(confirmPassword)) {
-      setMessage("Password must have at least 3 characters and contain at least one uppercase letter, one lowercase letter, and one number.")
+      setMessage("Password must be at least 3 characters, have at least one uppercase and one lowercase letter and one number.")
      }
      else {
       // console.log("ok for now")
@@ -70,7 +70,7 @@ const ResetPassword = () => {
             placeholder="Confirm your password"
             required
           />
-          <p className="font-semibold text-red-600 text-center">{message}</p>
+          <p className="text-red-600 text-center text-xs">{message}</p>
           <br />
           
           <button

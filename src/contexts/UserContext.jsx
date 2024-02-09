@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
     if (currentUserId) {
       const fetchUser = async () => {
         try {
-          const response = await axios.get(`${API_URL}/${currentUserId}`);
+          const response = await axios.get(`${API_URL}/user/${currentUserId}`);
           setUser(response.data);
         } catch (error) {
           console.error("Error fetching user data:", error);
