@@ -55,7 +55,7 @@ function App() {
         <Route path="/manageProfile" element={<ManageProfile />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
         <Route path="*" element={<Navigate replace to="/login" />} />
       </Routes>
     </ThemeProviderWrapper>
