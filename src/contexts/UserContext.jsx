@@ -2,6 +2,8 @@ import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
 // create a context
 export const UserContext = createContext();
 
@@ -19,9 +21,7 @@ export const UserProvider = ({ children }) => {
     if (currentUserId) {
       const fetchUser = async () => {
         try {
-          const response = await axios.get(
-            `http://localhost:5005/user/${currentUserId}`
-          );
+          const response = await axios.get(`${API_URL}/${currentUserId}`);
           setUser(response.data);
         } catch (error) {
           console.error("Error fetching user data:", error);
