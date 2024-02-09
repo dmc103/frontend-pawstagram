@@ -82,6 +82,11 @@ h1 {
   width: 100vw;
 }
 
+.dark-comments.dark {
+  background-color: #52525b;
+  color: #F5F7FB;
+}
+
 .blink_me {
   animation: blinker 5s linear infinite;
 }

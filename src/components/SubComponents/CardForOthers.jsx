@@ -6,6 +6,7 @@ import UserAvatar from "./UserAvatar";
 import PropTypes from "prop-types";
 import "ionicons";
 import axios from "axios";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
@@ -16,6 +17,7 @@ function CardForOthers({ post }) {
   const [showComments, setShowComments] = useState(false);
   const [commentText, setCommentText] = useState("");
   const [comments, setComments] = useState([]);
+  const { theme } = useContext(ThemeContext);
 
   const fetchData = useCallback(async () => {
     try {
@@ -176,7 +178,7 @@ function CardForOthers({ post }) {
               />
             </div>
           )}
-          <div className=" flex">
+          <div className="flex">
             {/* like button */}
             <div>
               <button
@@ -219,7 +221,7 @@ function CardForOthers({ post }) {
                 <textarea
                   value={commentText}
                   onChange={(event) => setCommentText(event.target.value)}
-                  className="w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2"
+                  className={"w-full grow p-3 h-15 border-2 border-gray-300 rounded-md mb-2 top-bar " + theme}
                   placeholder="Leave a comment"
                 ></textarea>
                 <button
@@ -239,7 +241,7 @@ function CardForOthers({ post }) {
             {comments.map((comment, index) => (
               <div
                 key={index}
-                className="bg-gray-200 p-2 rounded mb-1 flex items-start"
+                className={"bg-gray-200 p-2 rounded mb-1 flex items-start dark-comments " + theme}
               >
                 <UserAvatar
                   profileImageUrl={comment.profileImageUrl}
