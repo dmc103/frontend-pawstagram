@@ -40,10 +40,7 @@ function UserComp({ user, currentUser, onAddFriend }) {
         </div>
 
         <span className="text-sm font-semibold">{user.userName}</span>
-        <div
-          className=
-            "z-10  group-hover:-translate-y-10 transition-all duration-500"
-        >
+        <div className="z-10  group-hover:-translate-y-10 transition-all duration-500">
           <p className="text-sm text-gray-500 w-60">{user.bio}</p>
         </div>
 

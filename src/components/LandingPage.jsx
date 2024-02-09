@@ -12,17 +12,13 @@ function LandingPage({ onLoginSuccess }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-screen-sm mx-auto p-10 bg-white rounded-xl shadow-lg">
-        <div className="text-center">
-          <h2 className="mt-6 text-3xl font-bold text-indigo-900">
-            Welcome to Your App
-          </h2>
-          <p className="mt-2 text-sm text-indigo-900">Log in or Register</p>
-        </div>
-        <div className="bg-white py-10 px-2 shadow sm:rounded-lg sm:px-10">
-          <div className="relative space-y-6">
+    <div className="radial-gradient-bg">
+      <div className={`flip-card ${isFlipped ? "flipped" : ""}`}>
+        <div className="flip-card-inner">
+          <div className="flip-card-front">
             <LoginForm onLoginSuccess={onLoginSuccess} onFlip={toggleFlip} />
+          </div>
+          <div className="flip-card-back">
             <RegisterPage toggleFlip={toggleFlip} />
           </div>
         </div>
@@ -31,7 +27,7 @@ function LandingPage({ onLoginSuccess }) {
   );
 }
 
-// Prop validation
+//Prop validation
 LandingPage.propTypes = {
   onLoginSuccess: PropTypes.func.isRequired,
 };

@@ -65,7 +65,7 @@ function CardForPost({ onPostCreated }) {
 
   return (
     <Card>
-      <div className="flex flex-col md:flex-row md:items-center gap-4">
+      <div className="flex gap-2">
         <UserAvatar
           profileImageUrl={user.profilepic}
           isOnline={true}
@@ -88,7 +88,7 @@ function CardForPost({ onPostCreated }) {
 
       <input type="file" name="image" onChange={handleImageChange} />
 
-      <div className="flex flex-col md:flex-row md:items-center gap-4 mt-2">
+      <div className="flex gap-7 items-center mt-2">
         <div>
           <button
             onClick={handleIconClick}
@@ -128,12 +128,12 @@ function CardForPost({ onPostCreated }) {
           </button>
         </div>
 
-        <div className="flex justify-end md:justify-start grow">
+        <div className="flex justify-end grow">
           <button
             type="submit"
             onClick={handleSubmit}
             className={
-              "w-full md:w-1/2 flex justify-center py-1 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-900 focus:outline-none button " +
+              "w-1/2 flex justify-center py-1 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-900 focus:outline-none button " +
               theme
             }
           >
@@ -145,10 +145,9 @@ function CardForPost({ onPostCreated }) {
   );
 }
 
-// Props validation
+//props validation
 CardForPost.propTypes = {
   onPostCreated: PropTypes.func.isRequired,
 };
 
 export default CardForPost;
-

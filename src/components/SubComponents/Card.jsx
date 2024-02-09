@@ -1,4 +1,3 @@
-
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
@@ -12,12 +11,7 @@ function Card({ children }) {
         "bg-white shadow-md shadow-gray-300 overflow-auto rounded-md p-4 mb-5 color-bg " +
         theme
       }
-      style={{
-        boxShadow: "1px 0 15px -3px rgba(0, 0, 0, 0.3)",
-        width: "100%", // Responsive ekleme: Kartın genişliğini %100 yapar
-        maxWidth: "600px", // Responsive ekleme: Kartın maksimum genişliğini belirler
-        margin: "0 auto", // Responsive ekleme: Kartı merkeze hizalar
-      }}
+      style={{ boxShadow: "1px 0 15px -3px rgba(0, 0, 0, 0.3)" }}
     >
       {children}
     </div>

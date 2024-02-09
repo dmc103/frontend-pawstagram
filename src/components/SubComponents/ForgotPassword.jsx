@@ -31,8 +31,8 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="bg-pawBgFour min-h-screen flex flex-col items-center justify-center">
-      <div className="bg-amber-50 p-10 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] rounded-lg w-full max-w-md m-auto">
+    <div className="bg-pawBgFour sm: min-h-screen flex flex-col items-center justify-center">
+      <div className="bg-amber-50 p-10 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] rounded-lg max-w-2xl sm: m-auto">
         <h2 className="text-center text-slate-900 mb-6 font-medium text-3xl hover:text-indigo-800">
           Forgot Password
         </h2>
@@ -52,13 +52,13 @@ const ForgotPassword = () => {
           />
           <button
             type="submit"
-            className="mt-5 h-10 bg-gradient-to-r from-sky-400 to-indigo-600 w-full rounded-lg mb-2 hover:text-white hover:font-semibold hover:border-1 border-amber-100"
+            className="mt-5 h-10 bg-gradient-to-r from-sky-400 to-indigo-600 w-300 rounded-lg mb-2 hover:text-white hover:font-semibold hover:border-1 border-amber-100"
           >
             Send reset link
           </button>
           {message && <p className="text-center mt-4">{message}</p>}
         </form>
-        <div className="text underline text-center mt-4">
+        <div className="text underline text-end">
           <a href="/login">Back to Login</a>
         </div>
       </div>

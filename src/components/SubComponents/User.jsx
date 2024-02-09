@@ -27,6 +27,8 @@ function User({ currentUser }) {
     }
   }, [currentUser]);
 
+  console.log(`Token: ${localStorage.getItem("authToken")}`);
+
   const addFriend = async (userId) => {
     try {
       await axios.put(
@@ -43,13 +45,22 @@ function User({ currentUser }) {
 
       const updatedUsers = users.filter((user) => user._id !== userId);
       setUsers(updatedUsers);
+
+      //   setUsers(
+      //     users.map((user) => {
+      //       if (user._id === userId) {
+      //         return { ...user, isFriend: true };
+      //       }
+      //       return user;
+      //     })
+      //   );
     } catch (error) {
       console.error("Error adding friend:", error);
     }
   };
 
   return (
-    <div className="flex flex-wrap justify-around items-center">
+    <div>
       {users.map((user) => (
         <UserComp key={user._id} user={user} onAddFriend={addFriend} />
       ))}
@@ -57,7 +68,7 @@ function User({ currentUser }) {
   );
 }
 
-// Props validation
+//props validation
 User.propTypes = {
   currentUser: PropTypes.object.isRequired,
 };

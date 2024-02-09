@@ -32,26 +32,28 @@ function FriendsLists({ currentUser }) {
   }, [currentUser]);
 
   return (
-    <div className="mt-6">
-      <h2 className="text-2xl font-bold mb-4">Friends List</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {friends.map((friend) => (
-          <div
-            key={friend._id}
-            className="bg-white rounded-lg border-t-8 border-pawBgFour p-4 flex flex-col justify-between shadow-md"
-          >
-            <div className="text-sm font-bold font-sans mb-2">
-              {friend.userName}
-            </div>
-            <div className="text-gray-400 text-sm">{friend.bio}</div>
-          </div>
-        ))}
+    <div>
+      <h2 className="font-bold mb-4">Friends List</h2>
+      <div>
+        <ul>
+          {friends.map((friend) => (
+            <li
+              key={friend._id}
+              className="w-72 bg-white rounded-b-lg border-t-8 border-pawBgFour px-4 py-5 flex flex-col justify-around shadow-md"
+            >
+              <div className="text-sm font-bold font-sans">
+                {friend.userName}
+              </div>
+              <div className="text-gray-400 text-sm">{friend.bio}</div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 }
 
-// Props validation
+//props validation
 FriendsLists.propTypes = {
   currentUser: PropTypes.object.isRequired,
 };

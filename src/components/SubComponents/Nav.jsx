@@ -84,10 +84,10 @@ function Nav() {
       >
         <div
           className={
-            "flex flex-col h-screen justify-between pt-2 pb-4 color-bg " + theme
+            "flex h-screen flex-col justify-between pt-2 pb-4 color-bg " + theme
           }
         >
-          <div>
+          <div className={"color-bg " + theme}>
             <a href={`/profile/${user.userName}`} className="cursor-pointer">
               <div className="w-max p-2.5">
                 <UserAvatar
@@ -113,16 +113,11 @@ function Nav() {
                     name="home-outline"
                     className={"text-2xl " + theme}
                   ></ion-icon>
-                  <span
-                    className="transition-opacity duration-300"
-                    style={{ opacity: isHovered ? 1 : 0 }}
-                  >
-                    Home
-                  </span>
+                  <span style={{ opacity: isHovered ? 1 : 0 }}>Home</span>
                 </NavLinkWithClose>
-              </li>
 
-              {/* Friends */}
+                {/* Friends */}
+              </li>
               <li className="min-w-max">
                 <NavLinkWithClose
                   to="/manageprofile"
@@ -138,8 +133,6 @@ function Nav() {
 
                 {/* Chat */}
               </li>
-
-              {/* Chat */}
               <li className="min-w-max">
                 <NavLinkWithClose
                   to={`/profile/${user.userName}`}

@@ -5,6 +5,7 @@ import Nav from "./SubComponents/Nav";
 import CardForPost from "./SubComponents/CardForPost";
 import { ThemeContext } from "../contexts/ThemeContext";
 import TopBar from "./SubComponents/TopBar";
+import "../index.css";
 import User from "./SubComponents/User";
 import Card from "./SubComponents/Card";
 import AllPostsList from "./SubComponents/AllPostsList";
@@ -45,29 +46,27 @@ function UserHome() {
       <TopBar />
       <div
         className={
-          "w-full px-4 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-auto no-border" +
+          " w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-pawBgTwo lg:rounded-lg h-screen overflow-auto no-border color-bg " +
           theme
         }
       >
-        <div className={"flex flex-col-reverse lg:flex-row " + theme}>
-          <div className={"mt-4 lg:max-w-4xl lg:w-1/4 " + theme}>
+        <div className="flex">
+          <div className="mt-4 max-w-4xl">
             <Nav />
           </div>
 
-          <div className="lg:flex-grow mx-0 lg:mx-24 mt-4">
+          <div className="flex flex-col mx-24 mt-4">
             <CardForPost onPostCreated={toggleRefresh} />
 
             <AllPostsList refreshTrigger={refreshTrigger} />
           </div>
 
-          <div className="hidden lg:block w-1/4">
-            <div className="font-sans text-base antialiased font-medium leading-relaxed text-gray-500 bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
-              <h4>
-                <Card className="mt-5">People you may know</Card>
-              </h4>
+          <div className="block font-sans text-base antialiased font-medium leading-relaxed text-gray-500 bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
+            <h4>
+              <Card className="mt-5">People you may know</Card>
+            </h4>
 
-              <User currentUser={user} />
-            </div>
+            <User currentUser={user} />
           </div>
         </div>
       </div>

@@ -72,7 +72,7 @@ function CardForSharedPost({ post }) {
   return (
     <Card>
       <div>
-        <div className="flex flex-col md:flex-row md:items-center gap-4 px-4">
+        <div className="flex px-5">
           <a href={`/profile/${user.userName}`} className="cursor-pointer">
             <UserAvatar
               profileImageUrl={user.profilepic}
@@ -81,7 +81,7 @@ function CardForSharedPost({ post }) {
               indicatorPosition="top-14 start-16"
             />
           </a>
-          <div className="md:grow">
+          <div className="grow">
             <p>
               <a
                 href={`/profile/${user.userName}`}
@@ -123,7 +123,7 @@ function CardForSharedPost({ post }) {
             </div>
 
             {/* share button */}
-            <div className="flex items-center">
+            <div>
               <button className="flex gap-2 px-2 items-center">
                 <ion-icon name="share-social-outline"></ion-icon>
               </button>
@@ -132,7 +132,7 @@ function CardForSharedPost({ post }) {
 
           {/* comment space */}
           {showComments && (
-            <div className="flex mt-4 gap-3 items-center">
+            <div className="flex mt-4 gap-3">
               <div>
                 <UserAvatar
                   profileImageUrl={user.profilepic}
