@@ -4,11 +4,13 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
+import ChatboxContext from "/src/contexts/ChatbotContext.jsx";
 
 function TopBar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
+  const { showChatbox } = useContext(ChatboxContext);
 
   const handleLogout = (event) => {
     event.preventDefault();
@@ -57,10 +59,21 @@ function TopBar() {
 
       {/* Avatar, Notifications, and Logout Button */}
       <div className="ml-4 flex items-center md:ml-6">
+        {/* Petpal */}
+        <button
+          type="button"
+          onClick={showChatbox}
+          className="ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:scale-125 hover:text-white focus:outline-none focus:text-gray-700  transition duration-150 ease-in-out"
+          aria-label="Notifications"
+        >
+          <ion-icon name="paw" style={{ fontSize: "1.5em" }}></ion-icon>
+        </button>
+
         {/* Notifications Button */}
         <button
           type="button"
-          className="ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
+          className="ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full 
+          hover:scale-125 hover:text-white focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
           aria-label="Notifications"
         >
           <ion-icon
@@ -73,7 +86,7 @@ function TopBar() {
         <button
           type="button"
           onClick={handleLogout}
-          className="ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-200 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
+          className="ml-3 p-1 border-2 border-transparent text-gray-600 rounded-full hover:scale-125 hover:text-white focus:outline-none focus:text-gray-700 focus:bg-gray-200  transition duration-150 ease-in-out"
           aria-label="Logout"
         >
           <ion-icon

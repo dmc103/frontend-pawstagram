@@ -148,7 +148,7 @@ function Nav() {
               {/* Ai helper */}
               <li className="min-w-max">
                 <NavLinkWithClose
-                  to={`/profile/${user.userName}`}
+                  to={`/chatbot`}
                   className={({ isActive }) =>
                     isActive ? activeElement : nonActiveElement
                   }

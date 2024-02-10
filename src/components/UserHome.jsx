@@ -51,7 +51,7 @@ function UserHome() {
         }
       >
         <div className="flex">
-          <div className="mt-4 max-w-4xl">
+          <div className="mt-4 max-w-full">
             <Nav />
           </div>
 
